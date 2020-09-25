@@ -1,0 +1,102 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+div .nav {
+    background-color: #009CCF;
+    height: 28px;
+}
+
+ul {
+    list-style-type: none;
+    /*    margin: 0;*/
+    padding-top: 4px;
+    overflow: hidden;
+}
+
+    ul li {
+        float: left;
+        border-right: 1px solid gray;
+    }
+
+        ul li a {
+            /*            display: inline-block;*/
+            color: black;
+            text-align: center;
+            padding: 16px;
+        }
+
+li a:hover {
+    text-decoration: none;
+}
+
+thead {
+    background-color: #E2F0F6;
+}
+
+.iconAction {
+    width: 25px;
+}
+
+.name {
+    width: 200px;
+}
+
+.sex {
+    width: 90px;
+}
+
+.add {
+    width: 500px;
+}
+
+thead th {
+    width: 180px;
+}
+
+.dob {
+    width: 110px;
+}
+
+.phone {
+    width: 120px;
+}
+
+.email {
+    width: 200px;
+}
+
+.classes {
+    width: 70px;
+}
+
+label {
+    font-weight: 600;
+}
+
+#AddDialog {
+    background-color: #009CCF;
+    padding: 10px;
+}
+
+.btnAction {
+    margin-left: 20px;
+    padding: 10px;
+}
+
+#btnSave {
+    width: 50px;
+}
+
+
+#btnCancel {
+    width: 50px;
+}
+
+#search {
+    width: 350px;
+    height: 25px;
+}

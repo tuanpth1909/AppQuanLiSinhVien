@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LayoutPage.master.cs" Inherits="AppQuanLiSinhVien.LayoutPage.LayoutPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Quản Lí Sinh Viên</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="../css/home.css" rel="stylesheet" />
+    <script src="../js/myMain.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#"><i class="fas fa-house-damage"></i><strong> TRANG CHỦ</strong></a></li>
+                    <li><a href="#"><i class="fas fa-list"></i><strong> DANH SÁCH SINH VIÊN</strong></a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i><strong> KIỂM TRA ĐỊNH KÌ</strong></a></li>
+                    <li><a href="#"><i class="fas fa-donate"></i><strong> HỌC PHÍ</strong></a></li>
+                    <li><a href="#"><i class="fas fa-address-book"></i><strong> LIÊN HỆ</strong></a></li>
+                </ul>
+            </div>
+            <div id="Dialog"></div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="bg-primary p-0">
+                <h6 class="text-center text-black p-1"><strong>Bản quyển thuộc về Cty TNHH VNP 2001</strong></h6>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
