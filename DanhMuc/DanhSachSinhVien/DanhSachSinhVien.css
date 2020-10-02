@@ -1,0 +1,63 @@
+﻿tr:hover {
+    background-color: #55BDDF;
+}
+
+
+label {
+    font-weight: 600;
+}
+
+
+.bg {
+    background-color: #009CCF;
+}
+
+.ui-dialog-titlebar {
+    margin-top: 50%;
+    padding-top: 1px; 
+}
+
+.ui-widget-header, .ui-state-default {
+    background: #009CCF;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.ui-dialog-title {
+    
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    background-color: #009CCF;
+}
+
+.ui-draggable-handle {
+    text-align: center;
+}
+
+.ui-button {
+    float: right;
+}
+
+.error {
+    color: red;
+}
+
+button.ui-button:hover{
+    background-color: red;
+}
+
+button.btnCancel:hover {
+    background-color: red;
+}
+
+button.btnSave:hover{
+    background-color: blue; 
+    color: white;
+}
+
+button.btnUpdate:hover {
+    background-color: springgreen;
+    color: white;
+}
+

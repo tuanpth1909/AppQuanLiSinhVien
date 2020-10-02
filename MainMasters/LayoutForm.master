@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/LayoutMasters/LayoutPage.Master" AutoEventWireup="true" CodeFile="LayoutForm.master.cs" Inherits="AppQuanLiSinhVien.MainMasters.LayoutForm" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="/DanhMuc/DanhSachSinhVien/Contents.js?v=7"></script>
+    <link href="/DanhMuc/DanhSachSinhVien/DanhSachSinhVien.css?v=4" rel="stylesheet" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container-fluid">
+        <div class="row">
+            <%--Danh sách các trường ĐH--%>
+            <div class="col-2 mt-4">
+                <div class="row pl-3">
+                    <input type="search" name="name" id="searchCategory" class="float-right mb-3 form-control w-100" value="" placeholder="Search..." />
+                </div>
+
+                <div style="overflow: auto" id="dsDaiHoc">
+                    <ul class="list-group">
+                        <li ><a href="#"><strong>ĐH Kinh Tế Quốc Dân</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Bách Khoa</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Y Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Ngoại Thương</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Công nghiệp Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Công Đoàn</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Dược Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Giáo dục - ĐHQG Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Giao thông Vận tải</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Kiến trúc Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Luật Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Mở Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong>ĐH Mỹ thuật Việt Nam</strong></a></li>
+                        <li ><a href="#"><strong>ĐH FPT (Cơ sở Hà Nội)</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+            <%--Danh sách sinh viên--%>
+            <div class="col-10">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+</asp:Content>

@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LayoutPage.master.cs" Inherits="AppQuanLiSinhVien.LayoutMasters.LayoutPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Quản Lí Sinh Viên</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/all.min.css" rel="stylesheet" />
+    <link href="/css/MainStyle.css" rel="stylesheet" />
+    <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <%--Navigation--%>
+            <div class="nav">
+                <ul>
+                    <li><a href="#"><i class="fas fa-house-damage"></i><strong> TRANG CHỦ</strong></a></li>
+                    <li><a href="/DanhMuc/QuanLiSinhVien/QuanLiSinhVien.aspx"><i class="fas fa-list"></i><strong> DANH SÁCH SINH VIÊN</strong></a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i><strong> KIỂM TRA ĐỊNH KÌ</strong></a></li>
+                    <li><a href="#"><i class="fas fa-donate"></i><strong> HỌC PHÍ</strong></a></li>
+                    <li><a href="#"><i class="fas fa-address-book"></i><strong> LIÊN HỆ</strong></a></li>
+                </ul>
+            </div>
+            <%--Dialog--%>
+            <div id="jdialog"></div>
+            <%--Contents--%>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <%--Footer--%>
+            <div class="bg w-100" style="height: 30px; position: absolute;  bottom: 0; " id="range">
+                <h6 class="text-center text-black p-1"><strong>Bản quyển thuộc về Demo Simax Company</strong></h6>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

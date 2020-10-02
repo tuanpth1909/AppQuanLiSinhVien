@@ -1,0 +1,17 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LayoutDialog.master.cs" Inherits="AppQuanLiSinhVien.LayoutMasters.LayoutDialog" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Dialog thêm thông tin sinh viên</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+</html>
