@@ -12,6 +12,14 @@
             <div class="col-8">
                     <input type="search" name="name" id="search" class="float-right mb-3 form-control" style="width: 350px; height: 25px;" value="" placeholder="Tìm kiếm..." />
                 <div class="form-group float-right">
+                    <label class="mr-1"> Giới Tính: </label>
+                    <select name="slGioiTinh" id="slGioiTinh" class=" mr-1" style="padding-top: -50px; height: 25px;"">
+                            <option value="">--Chọn Giới Tính--</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                </div>
+                <div class="form-group float-right">
                         <label class="mr-1"> Lớp: </label>
                         <select name="slClasses" id="slClasses" class=" mr-1" style="padding-top: -50px; height: 25px;"">
                             <option value="">--Chọn lớp--</option>
@@ -21,14 +29,6 @@
                             <option value="T1906M">T1906M</option>
                         </select>
                     </div>
-                <div class="form-group float-right">
-                    <label class="mr-1"> Giới Tính: </label>
-                    <select name="slGioiTinh" id="slGioiTinh" class=" mr-1" style="padding-top: -50px; height: 25px;"">
-                            <option value="">--Chọn Giới Tính--</option>
-                            <option value="Nam">Nam</option>
-                            <option value="Nữ">Nữ</option>
-                        </select>
-                </div>
             </div>
         </div>
         <%--Bảng thông tin sinh viên--%>

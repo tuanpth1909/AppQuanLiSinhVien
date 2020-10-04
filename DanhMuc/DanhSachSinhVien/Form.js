@@ -7,7 +7,7 @@
     cancelStudents();
 
     //Cập nhật thông tin sau khi được chỉnh sửa
-    //Update();
+    Update();
 
     //Khai báo validate
     validateStudents();
@@ -46,7 +46,7 @@ function addStudents() {
                 "<td><a href='#' name='delete' title='Xóa thông tin sinh viên'><i class='fas fa-times'></i></a></td>" +
                 "</tr>");
 
-
+            //$(this).reset();
             $('#txtName').val("");
             $('#datBirthDay').val("");
             $('#txtAddress').val("");
@@ -77,58 +77,58 @@ function addStudents() {
 
 }
 
-//////Hàm chỉnh sửa
-//function Update() {
+////Hàm chỉnh sửa
+function Update() {
 
-//    let trEdit;
+    let trEdit;
 
-//    //bat su kiem khi nhap chuot vao update
-//    $('#btnUpdate').click(function () {
+    //bat su kiem khi nhap chuot vao update
+    $('#btnUpdate').click(function () {
 
-//        $('a[name=edit]').click(function () {
-//            trEdit = $(this).closest('tr');
-//        });
+        $('a[name=edit]').focus(function () {
 
-//        if ($('#validForm').valid()) {
+        });
+     
+        if ($('#validForm').valid()) {
 
-//            if (trEdit) {
+            if (trEdit) {
 
-//                let name = $('#txtName').val();
-//                let dob = $('#datBirthDay').val();
-//                let sex = $('input[name=sex]:checked').val();
-//                let add = $('#txtAddress').val();
-//                let tel = $('#numTel').val();
-//                let email = $('#emlEmail').val();
-//                let classes = $("#classes option:selected").val();
+                let name = $('#txtName').val();
+                let dob = $('#datBirthDay').val();
+                let sex = $('input[name=sex]:checked').val();
+                let add = $('#txtAddress').val();
+                let tel = $('#numTel').val();
+                let email = $('#emlEmail').val();
+                let classes = $("#classes option:selected").val();
 
 
-//                //thay the du lieu cu sau khi chinh sua
-//                $(trEdit).find('td:eq(0)').text(name);
-//                $(trEdit).find('td:eq(1)').text(dob);
-//                $(trEdit).find('td:eq(2)').text(sex);
-//                $(trEdit).find('td:eq(3)').text(add);
-//                $(trEdit).find('td:eq(4)').text(tel);
-//                $(trEdit).find('td:eq(5)').text(email);
-//                $(trEdit).find('td:eq(6)').text(classes);
+                //thay the du lieu cu sau khi chinh sua
+                $(trEdit).find('td:eq(0)').text(name);
+                $(trEdit).find('td:eq(1)').text(dob);
+                $(trEdit).find('td:eq(2)').text(sex);
+                $(trEdit).find('td:eq(3)').text(add);
+                $(trEdit).find('td:eq(4)').text(tel);
+                $(trEdit).find('td:eq(5)').text(email);
+                $(trEdit).find('td:eq(6)').text(classes);
 
-//                trEdit = null;
+                trEdit = null;
 
-//                $('#txtName').val("");
-//                $('#datBirthDay').val("");
-//                $('#txtAddress').val("");
-//                $('#numTel').val("");
-//                $('#emlEmail').val("");
-//                $('#classes').val($("#classes option:first").val());
+                $('#txtName').val("");
+                $('#datBirthDay').val("");
+                $('#txtAddress').val("");
+                $('#numTel').val("");
+                $('#emlEmail').val("");
+                $('#classes').val($("#classes option:first").val());
 
-//                alert("Cập nhật thông tin thành công!");
-//            }
-//        } else {
-//            return false;
-//        }
-//        $('#jdialog').dialog('close');
-//    });
+                alert("Cập nhật thông tin thành công!");
+            }
+        } else {
+            return false;
+        }
+        $('#jdialog').dialog('close');
+    });
 
-//}
+}
 
 //Hàm thoát
 function cancelStudents() {

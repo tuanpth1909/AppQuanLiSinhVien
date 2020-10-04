@@ -73,21 +73,19 @@ function searchStudents() {
         });
     });
 
-    $('#slClasses').on('click', function () {
+    $('#slClasses').change('click', function () {
         let value = $(this).val();
         $('tbody tr').filter(function () {
             $(this).toggle($(this).text().indexOf(value) > -1);
         });
     });
 
-    $('#slGioiTinh').on('click', function () {
+    $('#slGioiTinh').change('click', function () {
         let value = $(this).val();
         $('tbody tr').filter(function () {
             $(this).toggle($(this).text().indexOf(value) > -1);
         });
     });
-
-
 
 }
 
@@ -137,20 +135,22 @@ function editStudents() {
     //bat su kiem khi nhap chuot vao update
     $('#btnUpdate').click(function () {
         debugger;
-        if ($('#validForm').valid()) {
-            if (trEdit) {
+        $('a[name=edit]').focus(function () {
 
-                $.post("/DanhMuc/DanhSachSinhVien/FormDetail.aspx", {}, function (data) {
-                    $("#jdialog").html(data);
+            if ($('#validForm').valid()) {
+                if (trEdit) {
 
-                    let name = $('#txtName').val();
-                    let dob = $('#datBirthDay').val();
-                    let sex = $('input[name=sex]:checked').val();
-                    let add = $('#txtAddress').val();
-                    let tel = $('#numTel').val();
-                    let email = $('#emlEmail').val();
-                    let classes = $("#classes option:selected").val();
-                });
+                    $.post("/DanhMuc/DanhSachSinhVien/FormDetail.aspx", {}, function (data) {
+                        $("#jdialog").html(data);
+
+                        let name = $('#txtName').val();
+                        let dob = $('#datBirthDay').val();
+                        let sex = $('input[name=sex]:checked').val();
+                        let add = $('#txtAddress').val();
+                        let tel = $('#numTel').val();
+                        let email = $('#emlEmail').val();
+                        let classes = $("#classes option:selected").val();
+                    });
 
                     //thay the du lieu cu sau khi chinh sua
                     $(trEdit).find('td:eq(0)').text(name);
@@ -169,12 +169,14 @@ function editStudents() {
                     $('#numTel').val("");
                     $('#emlEmail').val("");
                     $('#classes').val($("#classes option:first").val());
-                
 
+
+                }
+            } else {
+                return false;
             }
-        } else {
-            return false;
-        }
+
+        });
         $('#jdialog').dialog('close');
     });
 
