@@ -44,6 +44,7 @@ function addStudents() {
                 "<td>" + classes + "</td>" +
                 "<td><a href='#' name='edit' title='Sửa thông tin sinh viên'><i class='fas fa-edit'></i></a></td>" +
                 "<td><a href='#' name='delete' title='Xóa thông tin sinh viên'><i class='fas fa-times'></i></a></td>" +
+                "<td><a href='#' name='view' title='Hiển thị chi tiết thông tin sinh viên'><i class='fas fa-info-circle'></i></a></td>" +
                 "</tr>");
 
             //$(this).reset();
@@ -70,8 +71,8 @@ function addStudents() {
         //sua ban ghi
         editStudents();
 
-        //thoat
-        cancelStudents();
+        //Hien thi chi tiet
+        views();
 
     });
 

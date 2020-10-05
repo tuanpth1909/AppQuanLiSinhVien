@@ -3,6 +3,9 @@
     //Mở Dialog
     openDialog();
 
+    //Hiển thị chi tiết thông tin sinh viên
+    views();
+
     //Xóa thông tin sinh viên
     deleteStudents();
 
@@ -32,14 +35,50 @@ function openDialog() {
                 closeText: "x",
                 title: "THÊM THÔNG TIN SINH VIÊN",
             });
-            //$('#jdialog').css({
-            //    top: ((window.innerHeight / 2) - ($('#jdialog').height() / 2)) + 'px',
-            //    left: ((window.innerWidth / 2) - ($('#jdialog').width() / 2)) + 'px'
-            //});
             $('#jdialog').dialog('open');
         });
     }
     );
+}
+
+//Hiển thị chi tiết thông tin sinh viên
+function views() {
+    let trEdit;
+
+    // bat su kien khi nhap chuot vao Edit
+    $('a[name=view]').click(function () {
+        trEdit = $(this).closest('tr');
+
+        let name = $(trEdit).find('td:eq(0)').text();
+        let dob = $(trEdit).find('td:eq(1)').text();
+        let sex = $(trEdit).find('td:eq(2)').text();
+        let add = $(trEdit).find('td:eq(3)').text();
+        let tel = $(trEdit).find('td:eq(4)').text();
+        let email = $(trEdit).find('td:eq(5)').text();
+        let classes = $(trEdit).find('td:eq(6)').text();
+
+        $.post("/DanhMuc/DanhSachSinhVien/ChiTiet.aspx", {}, function (data) {
+            $("#jdialog").html(data);
+            $('#jdialog').dialog({
+                autoOpen: false,
+                width: 850,
+                modal: true,
+                closeText: "x",
+                title: "CHI TIẾT THÔNG TIN SINH VIÊN",
+            });
+
+
+            $('#txtHovaTen').text(name);
+            $('#datNgaySinh').text(dob);
+            $('#txtGioiTinh').text(sex);
+            $('#txtDiaChi').text(add);
+            $('#txtDienThoai').text(tel);
+            $('#emlEmail').text(email);
+            $("#chkLop").text(classes);
+
+            $('#jdialog').dialog('open');
+        });
+    });
 }
 
 //Hàm xóa hồ sơ sinh viên
@@ -191,3 +230,5 @@ function sortDSDaiHoc() {
         return ($(a).text()) > ($(b).text()) ? 1 : -1;
     }
 }
+
+

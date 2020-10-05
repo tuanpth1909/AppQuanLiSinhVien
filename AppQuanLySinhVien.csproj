@@ -72,6 +72,7 @@
     <Content Include="css\fontawesome.css" />
     <Content Include="css\fontawesome.min.css" />
     <Content Include="css\MainStyle.css" />
+    <Content Include="DanhMuc\DanhSachSinhVien\ChiTiet.aspx" />
     <Content Include="DanhMuc\DanhSachSinhVien\FormDetail.aspx" />
     <Content Include="DanhMuc\DanhSachSinhVien\Form.js" />
     <Content Include="DanhMuc\DanhSachSinhVien\DanhSachSinhVien.aspx" />
@@ -84,6 +85,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DanhMuc\DanhSachSinhVien\ChiTiet.aspx.cs">
+      <DependentUpon>ChiTiet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\DanhSachSinhVien\ChiTiet.aspx.designer.cs">
+      <DependentUpon>ChiTiet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\DanhSachSinhVien\FormDetail.aspx.cs">
       <DependentUpon>FormDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LayoutMasters/LayoutDialog.Master" AutoEventWireup="true" CodeBehind="FormDetail.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.FormDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="/DanhMuc/DanhSachSinhVien/Form.js?v=7"></script>
+    <script src="/DanhMuc/DanhSachSinhVien/Form.js?v=9"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div id="AddDialog" style="background-color: #E5E5E5; padding: 10px;">
@@ -16,7 +16,7 @@
                         <%--Ngày sinh--%>
                         <div class="form-group">
                             <label>Ngày sinh (<span style="color: red">*</span>):</label>
-                            <input type="text" class="textbox-n w-75 float-right" onfocus="(this.type='date')" id="datBirthDay" name="date" max="getDate()" placeholder="Ngày/Tháng/Năm" value="">
+                            <input type="text" class="textbox-n w-75 float-right" onfocus="(this.type='date')" id="datBirthDay" name="date" placeholder="Ngày/Tháng/Năm" value="">
                         </div>
                         <%--Giới tính--%>
                         <div class="form-group">

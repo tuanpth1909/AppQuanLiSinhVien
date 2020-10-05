@@ -44,6 +44,7 @@
                     <th>LỚP</th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +58,7 @@
                     <td>T1909M</td>
                     <td><a href="#" name="edit" title="Sửa thông tin sinh viên"><i class="fas fa-edit"></i></a></td>
                     <td><a href="#" name="delete" title="Xóa thông tin sinh viên"><i class="fas fa-times"></i></a></td>
+                    <td><a href="#" name="view" title="Hiên thị chi tiết thông tin sinh viên"><i class="fas fa-info-circle"></i></a></td>
                 </tr>
                 <tr>
                     <td>Nguyễn Thị A</td>
@@ -68,6 +70,7 @@
                     <td>T1908M</td>
                     <td><a href="#" name="edit" title="Sửa thông tin sinh viên"><i class="fas fa-edit"></i></a></td>
                     <td><a href="#" name="delete" title="Xóa thông tin sinh viên"><i class="fas fa-times"></i></a></td>
+                    <td><a href="#" name="view" title="Hiên thị chi tiết thông tin sinh viên"><i class="fas fa-info-circle"></i></a></td>
                 </tr>
                 <tr>
                     <td>Lê Thanh B</td>
@@ -79,6 +82,7 @@
                     <td>T1906M</td>
                     <td><a href="#" name="edit" title="Sửa thông tin sinh viên"><i class="fas fa-edit"></i></a></td>
                     <td><a href="#" name="delete" title="Xóa thông tin sinh viên"><i class="fas fa-times"></i></a></td>
+                    <td><a href="#" name="view" title="Hiên thị chi tiết thông tin sinh viên"><i class="fas fa-info-circle"></i></a></td>
                 </tr>
                  <tr>
                     <td>Trần Thị B</td>
@@ -90,6 +94,7 @@
                     <td>T1906M</td>
                     <td><a href="#" name="edit" title="Sửa thông tin sinh viên"><i class="fas fa-edit"></i></a></td>
                     <td><a href="#" name="delete" title="Xóa thông tin sinh viên"><i class="fas fa-times"></i></a></td>
+                    <td><a href="#" name="view" title="Hiên thị chi tiết thông tin sinh viên"><i class="fas fa-info-circle"></i></a></td>
                 </tr>
             </tbody>
         </table>

@@ -27,8 +27,7 @@
                     <li><a href="#"><i class="fas fa-address-book"></i><strong> LIÊN HỆ</strong></a></li>
                 </ul>
             </div>
-            <%--Dialog--%>
-            <div id="jdialog"></div>
+            
             <%--Contents--%>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

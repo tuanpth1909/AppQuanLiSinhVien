@@ -33,6 +33,9 @@
                     </ul>
                 </div>
             </div>
+            <%--Dialog--%>
+            <div id="jdialog"></div>
+            <div id="chitiet"></div>
             <%--Danh sách sinh viên--%>
             <div class="col-10">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
