@@ -1,10 +1,11 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/LayoutMasters/LayoutPage.Master" AutoEventWireup="true" CodeFile="LayoutForm.master.cs" Inherits="AppQuanLiSinhVien.MainMasters.LayoutForm" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/LayoutMasters/LayoutPage.Master" AutoEventWireup="true" CodeFile="ExtraForm.master.cs" Inherits="AppQuanLiSinhVien.ExtraMasters.ExtraForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="/DanhMuc/DanhSachSinhVien/Contents.js?v=8"></script>
-    <link href="/DanhMuc/DanhSachSinhVien/DanhSachSinhVien.css?v=4" rel="stylesheet" />
+    <script src="/DanhMuc/DanhSachSinhVien/Contents.js?v=9"></script>
+    <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css?v=4" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="QuanLySinhVien" runat="server">
     <div class="container-fluid">
         <div class="row">
             <%--Danh sách các trường ĐH--%>
@@ -38,7 +39,7 @@
             <div id="chitiet"></div>
             <%--Danh sách sinh viên--%>
             <div class="col-10">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <asp:ContentPlaceHolder ID="DanhSachSinhVien" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
         </div>

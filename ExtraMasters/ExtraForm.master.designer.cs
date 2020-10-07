@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AppQuanLiSinhVien.LayoutMaster
+namespace AppQuanLiSinhVien.LayoutMasters
 {
 
 
-    public partial class LayoutForm
+    public partial class ExtraForm
     {
 
         /// <summary>

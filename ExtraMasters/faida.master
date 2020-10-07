@@ -1,0 +1,5 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/LayoutMasters/LayoutPage.Master" AutoEventWireup="true" CodeBehind="faida.master.cs" Inherits="AppQuanLiSinhVien.ExtraMasters.faida" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
 {
-    public partial class DanhSachSinhVien : System.Web.UI.Page
+    public partial class DanhSach : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

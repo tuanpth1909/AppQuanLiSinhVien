@@ -1,27 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMasters/LayoutForm.master" AutoEventWireup="true" CodeFile="DanhSachSinhVien.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.DanhSachSinhVien" %>
+﻿<%@ Page Title="Danh Sách Sinh Viên" Language="C#" MasterPageFile="~/ExtraMasters/ExtraForm.master" AutoEventWireup="true" CodeFile="DanhSach.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.DanhSach" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="DanhSachSinhVien" runat="server">
     <div class="container mt-4">
         <h4 class="mt-2"><i class="fas fa-list"></i><strong> DANH SÁCH SINH VIÊN</strong></h4>
         <div class="row">
             <%--btn Thêm sinh viên--%>
             <div class="col-4">
-                <button type="button" name="btnAdd" class="btn btn-sm mb-1 btn-primary" id="btnAdd"><i class="fas fa-plus-circle"></i> THÊM</button>
+                <button type="button" name="btnAdd" id="btnAdd" class="btn btn-sm mb-1 btn-primary"><i class="fas fa-plus-circle"></i> THÊM</button>
             </div>
             <%--Khu vực tìm kiếm--%>
             <div class="col-8">
-                    <input type="search" name="name" id="search" class="float-right mb-3 form-control" style="width: 350px; height: 25px;" value="" placeholder="Tìm kiếm..." />
-                <div class="form-group float-right">
-                    <label class="mr-1"> Giới Tính: </label>
-                    <select name="slGioiTinh" id="slGioiTinh" class=" mr-1" style="padding-top: -50px; height: 25px;"">
-                            <option value="">--Chọn Giới Tính--</option>
-                            <option value="Nam">Nam</option>
-                            <option value="Nữ">Nữ</option>
-                        </select>
-                </div>
+                    <input type="search" name="search" id="search" class="float-right mb-3 form-control" style="width: 350px; height: 25px;" value="" placeholder="Tìm kiếm..." />
                 <div class="form-group float-right">
                         <label class="mr-1"> Lớp: </label>
-                        <select name="slClasses" id="slClasses" class=" mr-1" style="padding-top: -50px; height: 25px;"">
+                        <select name="ddlClass" id="ddlClass" class=" mr-1" style="padding-top: -50px; height: 25px;"">
                             <option value="">--Chọn lớp--</option>
                             <option value="T1909M">T1909M</option>
                             <option value="T1908M">T1908M</option>

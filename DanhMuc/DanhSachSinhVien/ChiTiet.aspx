@@ -1,12 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LayoutMasters/LayoutDialog.Master" AutoEventWireup="true" CodeBehind="ChiTiet.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.ChiTiet" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="/DanhMuc/DanhSachSinhVien/Form.js?v=7"></script>
+    <script src="/DanhMuc/DanhSachSinhVien/Form.js?v=1"></script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="Popup" runat="server">
     <div style="background-color: #E5E5E5; padding: 35px;">
         <div class="row">
-            <div class="col-6">
+            <div class="col-5">
                 <%--Họ và tên--%>
                 <div class="row">
                     <label class="white-space: nowrap">Họ và tên (<span style="color: red">*</span>):&nbsp</label>
@@ -15,7 +16,7 @@
                 <%--Ngày sinh--%>
                <div class="row">
                     <label>Ngày sinh (<span style="color: red">*</span>): &nbsp</label>
-                    <p id="datNgaySinh">&nbsp</p>
+                    <p id="txtNgaySinh">&nbsp</p>
                 </div>
                 <%--Giới tính--%>
                <div class="row">
@@ -30,15 +31,15 @@
                 <%--Email--%>
                <div class="row">
                     <label>Email:&nbsp</label>
-                    <p id="emlEmail"></p>
+                    <p id="txtEmail"></p>
                 </div>
                 <%--Lớp--%>
                <div class="row">
                     <label>Lớp (<span style="color: red">*</span>):&nbsp</label>
-                    <p id="chkLop"></p>
+                    <p id="txtLop"></p>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-7">
                 <%--Địa chỉ--%>
                <div class="row">
                     <label>Địa chỉ (<span style="color: red">*</span>):&nbsp</label>
@@ -52,12 +53,12 @@
                 <%--Môn thể thao ưu thích--%>
                 <div class="row">
                     <label for="vehicle1" class="mt-1">Môn thể thao:&nbsp</label><br>
-                    <p id="checkSport"></p>
+                    <p id="txtSport"></p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <button type="button" name="btnCancel" id="btnCancel" class="btnCancel text-center" style="width: 65px;"><strong>ĐÓNG</strong></button>
+            <button type="button" name="btnDong" id="btnDong" class="btnCancel text-center" style="width: 65px;"><strong>ĐÓNG</strong></button>
         </div>
     </div>
 </asp:Content>

@@ -11,7 +11,7 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
 {
 
 
-    public partial class DanhSachSinhVien
+    public partial class DanhSach
     {
     }
 }
