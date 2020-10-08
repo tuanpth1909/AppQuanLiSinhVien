@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Thêm thông tin sinh viên" Language="C#" MasterPageFile="~/LayoutMasters/LayoutDialog.Master" AutoEventWireup="true" CodeBehind="FormDetail.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.FormDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="/DanhMuc/DanhSachSinhVien/Form.js?v=10"></script>
+    <script src="/DanhMuc/DanhSachSinhVien/Contents.js?v=6"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Popup" runat="server">
         <div id="AddDialog" style="background-color: #E5E5E5; padding: 10px;">
@@ -10,17 +10,17 @@
                     <div class="col-6 mt-1">
                         <%--Họ và tên--%>
                         <div class="form-group">
-                            <label>Họ và tên (<span style="color: red">*</span>): </label>
-                            <input type="text" name="txtName" id="txtName" class="w-75 float-right" value="" />
+                            <label><i class="fas fa-pencil-alt"></i>&nbsp Họ và tên (<span style="color: red">*</span>): </label>
+                            <input type="text" name="txtName" id="txtName" class="w-75 float-right" value="" required/>
                         </div>
                         <%--Ngày sinh--%>
                         <div class="form-group">
-                            <label>Ngày sinh (<span style="color: red">*</span>):</label>
-                            <input type="text" class="textbox-n w-75 float-right" onfocus="(this.type='date')" id="txtDate" name="txtDate" placeholder="Ngày/Tháng/Năm" value="">
+                            <label><i class="fas fa-calendar-alt"></i>&nbsp Ngày sinh (<span style="color: red">*</span>):</label>
+                            <input type="text" class="textbox-n w-75 float-right" onfocus="(this.type='date')" id="txtDate" name="txtDate" placeholder="Ngày/Tháng/Năm" value="" required>
                         </div>
                         <%--Giới tính--%>
                         <div class="form-group">
-                            <label class="w-25">Giới tính (<span style="color: red">*</span>):</label>
+                            <label class="w-25"><i class="fas fa-male"></i><i class="fas fa-female"></i>&nbsp Giới tính (<span style="color: red">*</span>):</label>
                             <input type="radio" name="rdoSex" value="Nam" checked />
                             Nam
                             <input type="radio" name="rdoSex" value="Nữ" class="" />
@@ -28,18 +28,18 @@
                         </div>
                         <%--Số điện thoại--%>
                         <div class="form-group">
-                            <label>Điện thoại:</label>
+                            <label><i class="fas fa-phone"></i>&nbsp Điện thoại:</label>
                             <input type="text" name="txtTel" id="txtTel" class="w-75 float-right" value="" />
                         </div>
                         <%--Email--%>
                         <div class="form-group">
-                            <label>Email:</label>
+                            <label><i class="fas fa-envelope"></i>&nbsp Email:</label>
                             <input type="email" name="txtEmail" id="txtEmail" class="w-75 float-right" value="" />
                         </div>
                         <%--Lớp--%>
                         <div class="form-group">
-                            <label>Lớp (<span style="color: red">*</span>):</label>
-                            <select name="ddlClasses" id="ddlClasses" class="w-25 ml-5" style="padding-top: -50px; height: 25px;">
+                            <label><i class="fas fa-users"></i>&nbsp Lớp (<span style="color: red">*</span>):</label>
+                            <select name="ddlClasses" id="ddlClasses" class="w-25 ml-4" style="padding-top: -50px; height: 25px; margin-left: 10px" required>
                                 <option value="T1909M">T1909M</option>
                                 <option value="T1908M">T1908M</option>
                                 <option value="T1907M">T1907M</option>
@@ -50,16 +50,16 @@
                     <div class="col-6">
                         <%--Địa chỉ--%>
                         <div class="form-group">
-                            <label>Địa chỉ (<span style="color: red">*</span>):</label>
+                            <label> <i class="fas fa-map-marker-alt"></i>&nbsp Địa chỉ (<span style="color: red">*</span>):</label>
                             <textarea id="txtAddress" name="txtAddress" class="w-100 float-right" required></textarea>
                         </div>
                         <%--Thông tin cá nhân--%>
                         <div class="form-group">
-                            <label>Thông tin cá nhân:</label>
+                            <label><i class="fas fa-user-shield"></i>&nbsp Thông tin cá nhân:</label>
                             <textarea id="txtPersonal" name="txtPersonal" class="w-100 float-right"></textarea>
                         </div>
                         <%--Môn thể thao ưu thích--%>
-                        <label for="vehicle1" class="mt-1">Môn thể thao:</label><br>
+                        <label for="vehicle1" class="mt-1"><i class="fas fa-futbol"></i>&nbsp Môn thể thao:</label><br>
                         <div class="form-group ">
                             <div class="row">
                                 <div class="col-4">
@@ -73,10 +73,10 @@
                                 <div class="col-4">
                                     <input type="checkbox" id="checkTennis" name="chkSport" value="Tennis">
                                     <label for="vehicle3">Tennis</label><br>
-                                    <input type="checkbox" id="checkSkiing" name="chkSport" value="Skiing">
-                                    <label for="vehicle3">Skiing</label><br>
-                                    <input type="checkbox" id="checkVolleyball" name="chkSport" value="Volleyball">
-                                    <label for="vehicle3">Volleyball</label>
+                                    <input type="checkbox" id="checkSkiing" name="chkSport" value="Trượt tuyết">
+                                    <label for="vehicle3">Trượt tuyết</label><br>
+                                    <input type="checkbox" id="checkVolleyball" name="chkSport" value="Bóng chuyền">
+                                    <label for="vehicle3">Bóng chuyền</label>
                                 </div>
                                 <div class="col-4">
                                     <input type="checkbox" id="checkBasketball" name="chkSport" value="Bóng rổ">
@@ -93,7 +93,7 @@
 
                     </div>
                     <div class="row ml-3">
-                        <button type="button" name="btnSave" id="btnSave" class="btnSave text-center" style="width: 50px; background-color: #0069D9;"><strong>LƯU</strong></button>
+                        <button type="button" name="btnSave" id="btnSave" class="btnSave text-center" style="width: 50px; background-color: #0069D9;" onclick="adds()"><strong>LƯU</strong></button>
                         <button type="button" name="btnUpdate" id="btnUpdate" class="btnUpdate text-center" style="display: none; width: 100px; background-color: #8DBC49;"><strong>CẬP NHẬT</strong></button>
                         <button type="button" name="btnDong" id="btnCancel" class="btnCancel text-center ml-2" style="width: 50px;"><strong>HỦY</strong></button>
                     </div>

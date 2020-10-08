@@ -33,61 +33,14 @@
                     <th>ĐỊA CHỈ</th>
                     <th style="width: 120px;">SỐ ĐIỆN THOẠI</th>
                     <th>EMAIL</th>
-                    <th>LỚP</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th style="width: 70px;">LỚP</th>
+                    <th style="width: 20px"></th>
+                    <th style="width: 20px"></th>
+                    <th style="width: 20px"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Phạm Tuân</td>
-                    <td class="text-center">2001-04-08</td>
-                    <td>Nam</td>
-                    <td>35A ngõ 116/51 Miếu Đầm - Nam Từ Liêm - Hà Nội</td>
-                    <td>0382548442</td>
-                    <td>phamtuancules20@gmail.com</td>
-                    <td>T1909M</td>
-                    <td><a href="#" name="edit" title="Sửa thông tin sinh viên"><i class="fas fa-edit"></i></a></td>
-                    <td><a href="#" name="delete" title="Xóa thông tin sinh viên"><i class="fas fa-times"></i></a></td>
-                    <td><a href="#" name="view" title="Hiên thị chi tiết thông tin sinh viên"><i class="fas fa-info-circle"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Nguyễn Thị A</td>
-                    <td class="text-center">2001-04-08</td>
-                    <td>Nữ</td>
-                    <td>90 Nguyễn Tuân - Thanh Xuân Trung - Thanh Xuân - Hà Nội</td>
-                    <td>0382548442</td>
-                    <td>nguyenthia@gmail.com</td>
-                    <td>T1908M</td>
-                    <td><a href="#" name="edit" title="Sửa thông tin sinh viên"><i class="fas fa-edit"></i></a></td>
-                    <td><a href="#" name="delete" title="Xóa thông tin sinh viên"><i class="fas fa-times"></i></a></td>
-                    <td><a href="#" name="view" title="Hiên thị chi tiết thông tin sinh viên"><i class="fas fa-info-circle"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Lê Thanh B</td>
-                    <td class="text-center">2001-04-08</td>
-                    <td>Nam</td>
-                    <td>54 Liễu Giai - Ngọc Khánh - Ba Đình - Hà Nội</td>
-                    <td>0382548442</td>
-                    <td>lethanhb@gmail.com</td>
-                    <td>T1906M</td>
-                    <td><a href="#" name="edit" title="Sửa thông tin sinh viên"><i class="fas fa-edit"></i></a></td>
-                    <td><a href="#" name="delete" title="Xóa thông tin sinh viên"><i class="fas fa-times"></i></a></td>
-                    <td><a href="#" name="view" title="Hiên thị chi tiết thông tin sinh viên"><i class="fas fa-info-circle"></i></a></td>
-                </tr>
-                 <tr>
-                    <td>Trần Thị B</td>
-                    <td class="text-center">2001-04-08</td>
-                    <td>Nam</td>
-                    <td>54 Liễu Giai - Ngọc Khánh - Ba Đình - Hà Nội</td>
-                    <td>0382548442</td>
-                    <td>lethanhb@gmail.com</td>
-                    <td>T1906M</td>
-                    <td><a href="#" name="edit" title="Sửa thông tin sinh viên"><i class="fas fa-edit"></i></a></td>
-                    <td><a href="#" name="delete" title="Xóa thông tin sinh viên"><i class="fas fa-times"></i></a></td>
-                    <td><a href="#" name="view" title="Hiên thị chi tiết thông tin sinh viên"><i class="fas fa-info-circle"></i></a></td>
-                </tr>
+                
             </tbody>
         </table>
     </div>

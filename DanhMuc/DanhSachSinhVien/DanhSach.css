@@ -43,12 +43,12 @@ label {
     color: red;
 }
 
-button.ui-button:hover{
-    background-color: red;
+button.ui-button:hover {
+    background-color: #E81123;
 }
 
 button.btnCancel:hover {
-    background-color: red;
+    background-color: #E81123;
 }
 
 button.btnSave:hover{

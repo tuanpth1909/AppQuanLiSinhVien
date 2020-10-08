@@ -78,7 +78,6 @@
     <Content Include="DanhMuc\DanhSachSinhVien\DanhSach.aspx" />
     <Content Include="DanhMuc\DanhSachSinhVien\DanhSach.css" />
     <Content Include="DanhMuc\DanhSachSinhVien\Contents.js" />
-    <Content Include="ExtraMasters\WebForm1.aspx" />
     <Content Include="js\fontawesome.min.js" />
     <Content Include="js\jquery-3.5.1.min.js" />
     <Content Include="js\jquery-ui.min.js" />
@@ -107,20 +106,6 @@
     <Compile Include="ExtraMasters\ExtraForm.master.designer.cs">
       <DependentUpon>ExtraForm.master</DependentUpon>
     </Compile>
-    <Compile Include="ExtraMasters\faida.master.cs">
-      <DependentUpon>faida.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ExtraMasters\faida.master.designer.cs">
-      <DependentUpon>faida.master</DependentUpon>
-    </Compile>
-    <Compile Include="ExtraMasters\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ExtraMasters\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="LayoutMasters\LayoutDialog.Master.cs">
       <DependentUpon>LayoutDialog.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,7 +133,6 @@
     <Content Include="LayoutMasters\LayoutPage.Master" />
     <Content Include="LayoutMasters\LayoutDialog.Master" />
     <Content Include="ExtraMasters\ExtraForm.master" />
-    <Content Include="ExtraMasters\faida.master" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Web.Debug.config">

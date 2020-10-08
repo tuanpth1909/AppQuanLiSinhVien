@@ -20,11 +20,11 @@
             <%--Navigation--%>
             <div class="nav">
                 <ul>
-                    <li><a href="#"><i class="fas fa-house-damage"></i><strong> TRANG CHỦ</strong></a></li>
-                    <li><a href="/DanhMuc/DanhSachSinhVien/DanhSach.aspx"><i class="fas fa-list"></i><strong> DANH SÁCH SINH VIÊN</strong></a></li>
-                    <li><a href="#"><i class="fas fa-file-alt"></i><strong> KIỂM TRA ĐỊNH KÌ</strong></a></li>
-                    <li><a href="#"><i class="fas fa-donate"></i><strong> HỌC PHÍ</strong></a></li>
-                    <li><a href="#"><i class="fas fa-address-book"></i><strong> LIÊN HỆ</strong></a></li>
+                    <li><a href="#"><i class="fas fa-house-damage"></i><strong>&nbsp TRANG CHỦ</strong></a></li>
+                    <li><a href="/DanhMuc/DanhSachSinhVien/DanhSach.aspx"><i class="fas fa-list"></i><strong>&nbsp DANH SÁCH SINH VIÊN</strong></a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i><strong>&nbsp KIỂM TRA ĐỊNH KÌ</strong></a></li>
+                    <li><a href="#"><i class="fas fa-donate"></i><strong>&nbsp HỌC PHÍ</strong></a></li>
+                    <li><a href="#"><i class="fas fa-address-book"></i><strong>&nbsp LIÊN HỆ</strong></a></li>
                 </ul>
             </div>
             

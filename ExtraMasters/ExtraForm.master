@@ -1,8 +1,8 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/LayoutMasters/LayoutPage.Master" AutoEventWireup="true" CodeFile="ExtraForm.master.cs" Inherits="AppQuanLiSinhVien.ExtraMasters.ExtraForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="/DanhMuc/DanhSachSinhVien/Contents.js?v=9"></script>
-    <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css?v=4" rel="stylesheet" />
+    <script src="/DanhMuc/DanhSachSinhVien/Form.js?v=15"></script>
+    <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css?v=5" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="QuanLySinhVien" runat="server">
@@ -16,21 +16,20 @@
 
                 <div style="overflow: auto" id="dsDaiHoc">
                     <ul class="list-group">
-                        <li ><a href="#"><strong>ĐH Kinh Tế Quốc Dân</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Bách Khoa</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Y Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Ngoại Thương</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Công nghiệp Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Công Đoàn</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Dược Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Giáo dục - ĐHQG Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Giao thông Vận tải</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Kiến trúc Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Luật Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Mở Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong>ĐH Mỹ thuật Việt Nam</strong></a></li>
-                        <li ><a href="#"><strong>ĐH FPT (Cơ sở Hà Nội)</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Kinh Tế Quốc Dân</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Bách Khoa</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Y Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Ngoại Thương</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Công nghiệp Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Công Đoàn</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Dược Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Giao thông Vận tải</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Kiến trúc Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Luật Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Mở Hà Nội</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Mỹ thuật Việt Nam</strong></a></li>
+                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH FPT (Cơ sở Hà Nội)</strong></a></li>
                     </ul>
                 </div>
             </div>
