@@ -72,12 +72,12 @@
     <Content Include="css\fontawesome.css" />
     <Content Include="css\fontawesome.min.css" />
     <Content Include="css\MainStyle.css" />
-    <Content Include="DanhMuc\DanhSachSinhVien\ChiTiet.aspx" />
+    <Content Include="DanhMuc\DanhSachSinhVien\ViewDetail.aspx" />
     <Content Include="DanhMuc\DanhSachSinhVien\FormDetail.aspx" />
-    <Content Include="DanhMuc\DanhSachSinhVien\Form.js" />
+    <Content Include="DanhMuc\DanhSachSinhVien\Contents.js" />
     <Content Include="DanhMuc\DanhSachSinhVien\DanhSach.aspx" />
     <Content Include="DanhMuc\DanhSachSinhVien\DanhSach.css" />
-    <Content Include="DanhMuc\DanhSachSinhVien\Contents.js" />
+    <Content Include="DanhMuc\DanhSachSinhVien\Form.js" />
     <Content Include="js\fontawesome.min.js" />
     <Content Include="js\jquery-3.5.1.min.js" />
     <Content Include="js\jquery-ui.min.js" />
@@ -85,12 +85,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DanhMuc\DanhSachSinhVien\ChiTiet.aspx.cs">
-      <DependentUpon>ChiTiet.aspx</DependentUpon>
+    <Compile Include="DanhMuc\DanhSachSinhVien\ViewDetail.aspx.cs">
+      <DependentUpon>ViewDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DanhMuc\DanhSachSinhVien\ChiTiet.aspx.designer.cs">
-      <DependentUpon>ChiTiet.aspx</DependentUpon>
+    <Compile Include="DanhMuc\DanhSachSinhVien\ViewDetail.aspx.designer.cs">
+      <DependentUpon>ViewDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\DanhSachSinhVien\FormDetail.aspx.cs">
       <DependentUpon>FormDetail.aspx</DependentUpon>

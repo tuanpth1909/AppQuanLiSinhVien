@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LayoutMasters/LayoutDialog.Master" AutoEventWireup="true" CodeBehind="ChiTiet.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.ChiTiet" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LayoutMasters/LayoutDialog.Master" AutoEventWireup="true" CodeFile="ViewDetail.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.ViewDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -60,4 +60,9 @@
             <button type="button" name="btnDong" id="btnDong" class="btnCancel text-center" style="width: 65px;"><strong>ĐÓNG</strong></button>
         </div>
     </div>
+    <script>
+        $('button[name=btnDong]').click(function () {
+            $('#jdialog').dialog('close');
+        });
+    </script>
 </asp:Content>

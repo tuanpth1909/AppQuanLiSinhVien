@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="Danh Sách Sinh Viên" Language="C#" MasterPageFile="~/ExtraMasters/ExtraForm.master" AutoEventWireup="true" CodeFile="DanhSach.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.DanhSach" %>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="DanhSachSinhVien" runat="server">
     <div class="container mt-4">
         <h4 class="mt-2"><i class="fas fa-list"></i><strong> DANH SÁCH SINH VIÊN</strong></h4>
         <div class="row">
-            <%--btn Thêm sinh viên--%>
+            <%--Thêm sinh viên--%>
             <div class="col-4">
                 <button type="button" name="btnAdd" id="btnAdd" class="btn btn-sm mb-1 btn-primary"><i class="fas fa-plus-circle"></i> THÊM</button>
             </div>
@@ -13,7 +14,7 @@
                     <input type="search" name="search" id="search" class="float-right mb-3 form-control" style="width: 350px; height: 25px;" value="" placeholder="Tìm kiếm..." />
                 <div class="form-group float-right">
                         <label class="mr-1"> Lớp: </label>
-                        <select name="ddlClass" id="ddlClass" class=" mr-1" style="padding-top: -50px; height: 25px;"">
+                        <select name="ddlFindClass" id="ddlFindClass" class=" mr-1" style="padding-top: -50px; height: 25px;"">
                             <option value="">--Chọn lớp--</option>
                             <option value="T1909M">T1909M</option>
                             <option value="T1908M">T1908M</option>
@@ -44,4 +45,6 @@
             </tbody>
         </table>
     </div>
+    <script src="/DanhMuc/DanhSachSinhVien/Contents.js"></script>
+    <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css" rel="stylesheet" />
 </asp:Content>

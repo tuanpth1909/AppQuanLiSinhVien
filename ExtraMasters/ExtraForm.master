@@ -1,8 +1,6 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/LayoutMasters/LayoutPage.Master" AutoEventWireup="true" CodeFile="ExtraForm.master.cs" Inherits="AppQuanLiSinhVien.ExtraMasters.ExtraForm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="/DanhMuc/DanhSachSinhVien/Form.js?v=15"></script>
-    <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css?v=5" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="QuanLySinhVien" runat="server">
@@ -43,4 +41,20 @@
             </div>
         </div>
     </div>
+    <script>
+        //Sắp xếp tên các trường đại học theo thứ tự từ a-z
+        $(".list-group li").sort(asc_sort).appendTo('.list-group');
+        function asc_sort(a, b) {
+            return ($(a).text()) > ($(b).text()) ? 1 : -1;
+        }
+
+        //Tìm kiếm trường đại học
+        $('#searchCategory').on('search', function () {
+            let keyword = $(this).val().toLowerCase();
+            $('div #dsDaiHoc ul li').filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(keyword) > -1);
+            });
+        });
+       
+    </script>
 </asp:Content>
