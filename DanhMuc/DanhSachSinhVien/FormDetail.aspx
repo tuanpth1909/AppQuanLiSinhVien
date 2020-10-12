@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Thêm thông tin sinh viên" Language="C#" MasterPageFile="~/LayoutMasters/LayoutDialog.Master" AutoEventWireup="true" CodeBehind="FormDetail.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.FormDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="/DanhMuc/DanhSachSinhVien/Form.js?v=7"></script>
+    <script src="/DanhMuc/DanhSachSinhVien/Form.js?v=8"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Popup" runat="server">
         <div id="AddDialog" style="background-color: #E5E5E5; padding: 10px;">

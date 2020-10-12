@@ -32,3 +32,10 @@ ul {
 li a:hover {
     text-decoration: none;
 }
+
+.container-fluid#home.active{
+    filter: blur(0.8px);
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+}

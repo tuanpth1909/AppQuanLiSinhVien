@@ -58,11 +58,15 @@
         </div>
         <div class="row">
             <button type="button" name="btnDong" id="btnDong" class="btnCancel text-center" style="width: 65px;"><strong>ĐÓNG</strong></button>
-        </div>
+        </div>                          
     </div>
     <script>
         $('button[name=btnDong]').click(function () {
             $('#jdialog').dialog('close');
+            $('#home').removeClass('active');
+        });
+        $('.ui-button').click(function () {
+            $('#home').removeClass('active');
         });
     </script>
 </asp:Content>

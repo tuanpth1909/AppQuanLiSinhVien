@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     cancels();
+    closeBlur();
 });
 
 
@@ -9,6 +10,7 @@ function editItem(item, key, obj) {
 }
 
 function edits(index) {
+    document.getElementById('home').classList.toggle('active');
     let student = dataStudents[index];
     $.post("/DanhMuc/DanhSachSinhVien/FormDetail.aspx", {}, function (data) {
         $("#jdialog").html(data);
@@ -42,6 +44,7 @@ function edits(index) {
             $('#btnSave').show();
 
             $('#jdialog').dialog('close');
+            document.getElementById('home').classList.toggle('active');
         });
     });
 
@@ -50,8 +53,15 @@ function edits(index) {
     
 function cancels() {
     $('button[name=btnDong]').click(function () {
+        $('#home').removeClass('active');
         document.getElementById('validForm').reset();
         $('#jdialog').dialog('close');
+    });
+}
+
+function closeBlur() {
+    $('.ui-button').click(function () {
+        $('#home').removeClass('active');
     });
 }
 

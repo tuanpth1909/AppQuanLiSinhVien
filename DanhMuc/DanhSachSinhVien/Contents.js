@@ -51,7 +51,6 @@ function setStudent() {
 
 function adds() {
     if ($('#validForm').valid()) {
-        debugger
         let validateField = compareStudents();
         if (validateField) {
             let dataStudent = getStudent();
@@ -68,6 +67,8 @@ function adds() {
 
 function views() {
     $("#btnAdd").click(function () {
+        //blur();
+        document.getElementById('home').classList.toggle('active');
         $.post("/DanhMuc/DanhSachSinhVien/FormDetail.aspx", {}, function (data) {
             $("#jdialog").html(data);
             $('#jdialog').dialog({
@@ -84,6 +85,7 @@ function views() {
 }
 
 function display(index) {
+    document.getElementById('home').classList.toggle('active');
     $.post("/DanhMuc/DanhSachSinhVien/ViewDetail.aspx", {}, function (data) {
         $("#jdialog").html(data);
         $('#jdialog').dialog({
@@ -135,27 +137,14 @@ function searches() {
 }
 
 function compareStudents() {
-    //let item = getStudent();
-    //for (i = 0; dataStudents.length; i++) {
-    //    let compare = _.isEqual(item, dataStudents[i]);
-    //    if (compare == true) {
-    //        break;
-    //    }
-    //}
-    //return compare;
     let objItem = getStudent();
     for (item in dataStudents) {
-        if (dataStudents[item].txtName == objItem.txtName) {
+        if (dataStudents[item].name == objItem.name && dataStudents[item].dob == objItem.dob) {
             return false;
         }
     }
     return true;
 }
-
-
-
-
-
 
 
 

@@ -4,12 +4,12 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="QuanLySinhVien" runat="server">
-    <div class="container-fluid">
+    <div class="container-fluid" id="home">
         <div class="row">
             <%--Danh sách các trường ĐH--%>
             <div class="col-2 mt-4">
                 <div class="row pl-3">
-                    <input type="search" name="name" id="searchCategory" class="float-right mb-3 form-control w-100" value="" placeholder="Search..." />
+                    <input type="search" name="name" id="searchCategory" class="float-right mb-3 form-control w-100" value="" placeholder="Tìm kiếm trường đại học..." />
                 </div>
 
                 <div style="overflow: auto" id="dsDaiHoc">
