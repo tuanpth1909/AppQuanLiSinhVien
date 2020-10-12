@@ -31,7 +31,7 @@ function getStudent() {
     return student;
 }
 
-function push() {
+function setStudent() {
     $(".item").remove();
     $.each(dataStudents, function (key, item) {
         $('tbody').append("<tr class=\"item\">" +
@@ -43,7 +43,7 @@ function push() {
             "<td>" + item.email + "</td>" +
             "<td>" + item.classes + "</td>" +
             "<td class='text-center'><a href='#' name='edit' title='Sửa thông tin sinh viên' style='color: #ffd800' onclick=edits(" + key + ")><i class='fas fa-edit'></i></a></td>" +
-            "<td class='text-center'><a href='#' name='delete' title='Xóa thông tin sinh viên'style='color: #ff0000'  onclick=deletes(dataStudents," + key + ")><i class='fas fa-times'></i></a></td>" +
+            "<td class='text-center'><a href='#' name='delete' title='Xóa thông tin sinh viên'style='color: #ff0000' onclick=deletes(dataStudents," + key + ")><i class='fas fa-times'></i></a></td>" +
             "<td class='text-center'><a href='#' name='view' title='Hiển thị chi tiết thông tin sinh viên' onclick=display(" + key + ")><i class='fas fa-info-circle'></i></a></td>" +
             "</tr>");
     })
@@ -51,9 +51,16 @@ function push() {
 
 function adds() {
     if ($('#validForm').valid()) {
-        dataStudents.push(getStudent());
-        push();
-        document.getElementById('validForm').reset();
+        debugger
+        let validateField = compareStudents();
+        if (validateField) {
+            let dataStudent = getStudent();
+            dataStudents.push(dataStudent);
+            setStudent();
+            document.getElementById('validForm').reset();
+        } else {
+            alert("Dữ liệu nhập bị trùng vui lòng nhập lại!");
+        }
     } else {
         return false;
     }
@@ -104,7 +111,7 @@ function display(index) {
 function deletes(item, key) {
     if (confirm("Bạn có chắc là muốn xóa không?") == true) {
         item.splice(key, 1);
-        push(item);
+        setStudent(item);
     } else {
         return false;
     }
@@ -127,6 +134,23 @@ function searches() {
     });
 }
 
+function compareStudents() {
+    //let item = getStudent();
+    //for (i = 0; dataStudents.length; i++) {
+    //    let compare = _.isEqual(item, dataStudents[i]);
+    //    if (compare == true) {
+    //        break;
+    //    }
+    //}
+    //return compare;
+    let objItem = getStudent();
+    for (item in dataStudents) {
+        if (dataStudents[item].txtName == objItem.txtName) {
+            return false;
+        }
+    }
+    return true;
+}
 
 
 

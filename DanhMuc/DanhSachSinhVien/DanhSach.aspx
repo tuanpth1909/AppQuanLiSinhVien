@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="Danh Sách Sinh Viên" Language="C#" MasterPageFile="~/ExtraMasters/ExtraForm.master" AutoEventWireup="true" CodeFile="DanhSach.aspx.cs" Inherits="AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien.DanhSach" %>
 
-
 <asp:Content ID="Content2" ContentPlaceHolderID="DanhSachSinhVien" runat="server">
     <div class="container mt-4">
         <h4 class="mt-2"><i class="fas fa-list"></i><strong> DANH SÁCH SINH VIÊN</strong></h4>
@@ -45,6 +44,6 @@
             </tbody>
         </table>
     </div>
-    <script src="/DanhMuc/DanhSachSinhVien/Contents.js"></script>
+    <script src="/DanhMuc/DanhSachSinhVien/Contents.js?v=4"></script>
     <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css" rel="stylesheet" />
 </asp:Content>

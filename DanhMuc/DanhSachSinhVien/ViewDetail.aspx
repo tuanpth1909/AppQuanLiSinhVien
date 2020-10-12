@@ -9,49 +9,49 @@
             <div class="col-6">
                 <%--Họ và tên--%>
                 <div class="row">
-                    <label class="white-space: nowrap"><i class="fas fa-pencil-alt"></i>&nbsp Họ và tên (<span style="color: red">*</span>):&nbsp</label>
+                    <label class="white-space: nowrap">&nbsp Họ và tên (<span style="color: red">*</span>):&nbsp</label>
                     <p id="txtHovaTen"></p>
                 </div>
                 <%--Ngày sinh--%>
                <div class="row">
-                    <label><i class="fas fa-calendar-alt"></i>&nbsp Ngày sinh (<span style="color: red">*</span>): &nbsp</label>
+                    <label>&nbsp Ngày sinh (<span style="color: red">*</span>): &nbsp</label>
                     <p id="txtNgaySinh">&nbsp</p>
                 </div>
                 <%--Giới tính--%>
                <div class="row">
-                    <label class="w-25"><i class="fas fa-male"></i><i class="fas fa-female"></i>&nbsp Giới tính (<span style="color: red">*</span>):&nbsp</label>
+                    <label class="w-25">&nbsp Giới tính (<span style="color: red">*</span>):&nbsp</label>
                     <p id="txtGioiTinh">&nbsp</p>
                 </div>
                 <%--Số điện thoại--%>
                <div class="row">
-                    <label><i class="fas fa-phone"></i>&nbsp Điện thoại: &nbsp</label>
+                    <label>&nbsp Điện thoại: &nbsp</label>
                     <p id="txtDienThoai"></p>
                 </div>
                 <%--Email--%>
                <div class="row">
-                    <label><i class="fas fa-envelope"></i>&nbsp Email:&nbsp</label>
+                    <label>&nbsp Email:&nbsp</label>
                     <p id="txtEmail"></p>
                 </div>
                 <%--Lớp--%>
                <div class="row">
-                    <label><i class="fas fa-users"></i>&nbsp Lớp (<span style="color: red">*</span>):&nbsp</label>
+                    <label>&nbsp Lớp (<span style="color: red">*</span>):&nbsp</label>
                     <p id="txtLop"></p>
                 </div>
             </div>
             <div class="col-6">
                 <%--Địa chỉ--%>
                <div class="row">
-                    <label> <i class="fas fa-map-marker-alt"></i>&nbsp Địa chỉ (<span style="color: red">*</span>):&nbsp</label>
+                    <label>&nbsp Địa chỉ (<span style="color: red">*</span>):&nbsp</label>
                     <p id="txtDiaChi"></p>
                 </div>
                 <%--Thông tin cá nhân--%>
                 <div class="row">
-                    <label><i class="fas fa-user-shield"></i>&nbsp Thông tin cá nhân: &nbsp</label>
+                    <label>&nbsp Thông tin cá nhân: &nbsp</label>
                     <p id="txtThongTinCaNhan"></p>
                 </div>
                 <%--Môn thể thao ưu thích--%>
                 <div class="row">
-                    <label for="vehicle1" class="mt-1"><i class="fas fa-futbol"></i>&nbsp Môn thể thao:&nbsp</label><br>
+                    <label for="vehicle1" class="mt-1">&nbsp Môn thể thao:&nbsp</label><br>
                     <p id="txtSport"></p>
                 </div>
             </div>

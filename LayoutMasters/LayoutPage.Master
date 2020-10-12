@@ -7,10 +7,12 @@
     <title>Quản Lý Sinh Viên</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/all.min.css" rel="stylesheet" />
+    <link href="/css/fontawesome.min.css" rel="stylesheet" />
     <link href="/css/MainStyle.css" rel="stylesheet" />
     <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/lodash.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

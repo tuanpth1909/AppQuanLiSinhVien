@@ -10,17 +10,17 @@
                     <div class="col-6 mt-1">
                         <%--Họ và tên--%>
                         <div class="form-group">
-                            <label><i class="fas fa-pencil-alt"></i>&nbsp Họ và tên (<span style="color: red">*</span>): </label>
+                            <label>&nbsp Họ và tên (<span style="color: red">*</span>): </label>
                             <input type="text" name="txtName" id="txtName" class="w-75 float-right" value="" required/>
                         </div>
                         <%--Ngày sinh--%>
                         <div class="form-group">
-                            <label><i class="fas fa-calendar-alt"></i>&nbsp Ngày sinh (<span style="color: red">*</span>):</label>
+                            <label>&nbsp Ngày sinh (<span style="color: red">*</span>):</label>
                             <input type="text" class="textbox-n w-75 float-right" onfocus="(this.type='date')" id="txtDate" name="txtDate" placeholder="Ngày/Tháng/Năm" value="" required>
                         </div>
                         <%--Giới tính--%>
                         <div class="form-group">
-                            <label class="w-25"><i class="fas fa-male"></i><i class="fas fa-female"></i>&nbsp Giới tính (<span style="color: red">*</span>):</label>
+                            <label class="w-25">&nbsp Giới tính (<span style="color: red">*</span>):</label>
                             <input type="radio" name="rdoSex" value="Nam" checked />
                             Nam
                             <input type="radio" name="rdoSex" value="Nữ" class="" />
@@ -28,18 +28,18 @@
                         </div>
                         <%--Số điện thoại--%>
                         <div class="form-group">
-                            <label><i class="fas fa-phone"></i>&nbsp Điện thoại:</label>
+                            <label>&nbsp Điện thoại:</label>
                             <input type="text" name="txtTel" id="txtTel" class="w-75 float-right" value="" />
                         </div>
                         <%--Email--%>
                         <div class="form-group">
-                            <label><i class="fas fa-envelope"></i>&nbsp Email:</label>
+                            <label>&nbsp Email:</label>
                             <input type="email" name="txtEmail" id="txtEmail" class="w-75 float-right" value="" />
                         </div>
                         <%--Lớp--%>
                         <div class="form-group">
-                            <label><i class="fas fa-users"></i>&nbsp Lớp (<span style="color: red">*</span>):</label>
-                            <select name="ddlClasses" id="ddlClasses" class="w-25 ml-4" style="padding-top: -50px; height: 25px; margin-left: 10px" required>
+                            <label>&nbsp Lớp (<span style="color: red">*</span>):</label>
+                            <select name="ddlClasses" id="ddlClasses" class="w-25 ml-5" style="padding-top: -50px; height: 25px; margin-left: 10px" required>
                                 <option value="T1909M">T1909M</option>
                                 <option value="T1908M">T1908M</option>
                                 <option value="T1907M">T1907M</option>
@@ -50,16 +50,16 @@
                     <div class="col-6">
                         <%--Địa chỉ--%>
                         <div class="form-group">
-                            <label> <i class="fas fa-map-marker-alt"></i>&nbsp Địa chỉ (<span style="color: red">*</span>):</label>
+                            <label>&nbsp Địa chỉ (<span style="color: red">*</span>):</label>
                             <textarea id="txtAddress" name="txtAddress" class="w-100 float-right" required></textarea>
                         </div>
                         <%--Thông tin cá nhân--%>
                         <div class="form-group">
-                            <label><i class="fas fa-user-shield"></i>&nbsp Thông tin cá nhân:</label>
+                            <label>&nbsp Thông tin cá nhân:</label>
                             <textarea id="txtPersonal" name="txtPersonal" class="w-100 float-right"></textarea>
                         </div>
                         <%--Môn thể thao ưu thích--%>
-                        <label for="vehicle1" class="mt-1"><i class="fas fa-futbol"></i>&nbsp Môn thể thao:</label><br>
+                        <label for="vehicle1" class="mt-1">&nbsp Môn thể thao:</label><br>
                         <div class="form-group ">
                             <div class="row">
                                 <div class="col-4">

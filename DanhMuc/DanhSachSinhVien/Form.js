@@ -36,7 +36,7 @@ function edits(index) {
         $('#btnUpdate').click(function () {
             let obj = getStudent();
             editItem(dataStudents, index, obj);
-            push(dataStudents);
+            setStudent(dataStudents);
 
             $('#btnUpdate').hide();
             $('#btnSave').show();
@@ -47,7 +47,7 @@ function edits(index) {
 
     
 }
-
+    
 function cancels() {
     $('button[name=btnDong]').click(function () {
         document.getElementById('validForm').reset();
