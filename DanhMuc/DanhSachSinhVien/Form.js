@@ -16,9 +16,9 @@ function edits(index) {
         $("#jdialog").html(data);
         $('#jdialog').dialog({
             autoOpen: false,
+            height: "auto",
             width: 900,
             modal: true,
-            closeText: "x",
             title: "THÊM THÔNG TIN SINH VIÊN",
         });
 

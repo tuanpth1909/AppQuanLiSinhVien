@@ -83,6 +83,7 @@
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\lodash.min.js" />
+    <Content Include="js\PluginJquery.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

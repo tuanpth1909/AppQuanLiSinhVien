@@ -73,10 +73,99 @@ function views() {
             $("#jdialog").html(data);
             $('#jdialog').dialog({
                 autoOpen: false,
+                height: "auto",
                 width: 900,
                 modal: true,
-                closeText: "x",
+                closeText: "✖",
                 title: "THÊM THÔNG TIN SINH VIÊN",
+                create: function (e, ui) {
+                    //khởi tạo biến lấy this
+                    let that = $(this);
+
+                    //Khởi tạo biến lấy dialog
+                    let dlg = $(this).dialog('widget');
+
+                    //#region Tạo btn thu nhỏ dialog
+                    //Khởi tạo các thuộc tính và button cần custom
+                    let min = $('<button>', {
+                        //Khai báo kiểu JSON
+                        class: "ui-dialog-titlebar-min",
+                        type: "button",
+                        title: "Minimize"
+                    })
+
+                        //Khởi tạo nút btn
+                        .button({
+                            icon: "fas fa-minus",
+                            showLabel: false
+                        })
+                    //#endregion
+
+                    //#region Tạo btn phóng to dialog
+                    let max = $('<button>', {
+                        class: "ui-dialog-titlebar-max",
+                        type: "button",
+                        title: "Maximize"
+                    })
+
+                        //Khởi tạo nút btn phóng to
+                        .button({
+                            icon: "fas fa-expand-arrows-alt",
+                            showLabel: false
+                        })
+                    //#endregion
+
+                    //
+
+                    //#region Tạo btn ẩn dialog
+                    let eyes = $('<button>', {
+                        class: "ui-dialog-titlebar-hide",
+                        type: "button",
+                        title: "Hide Dialog"
+                    })
+
+                        .button({
+                            icon: "fas fa-eye-slash",
+                            showLabel: false
+                        })
+
+                    let oSize = {
+                        width: that.dialog('option', 'width'),
+                        height: that.dialog('option', 'height'),
+                        position: {
+                            my: 'center',
+                            at: 'center',
+                            of: window
+                        }
+                    };
+                    //#endregion
+
+                    let mSize = {
+                        width: $(window).width(),
+                        height: $(window).height(),
+                        position: {
+                            my: 'left top',
+                            at: 'left top',
+                            of: window
+                        }
+                    };
+
+                    min.click(function (e) {
+                        that.dialog('option', oSize);
+                    });
+
+                    max.click(function (e) {
+                        that.dialog('option', mSize);
+                    });
+
+                    eyes.hover(function (e) {
+                        that.hide();
+                    }, function (e) {
+                        that.show();
+                    });
+
+                    $('.ui-dialog-titlebar .ui-dialog-title', dlg).after(min, max, eyes);
+                }
             });
             $('#jdialog').dialog('open');
         });
@@ -90,10 +179,11 @@ function display(index) {
         $("#jdialog").html(data);
         $('#jdialog').dialog({
             autoOpen: false,
+            height: "auto",
             width: 900,
             modal: true,
-            closeText: "x",
             title: "THÊM THÔNG TIN SINH VIÊN",
+
         });
 
         let student = dataStudents[index];
