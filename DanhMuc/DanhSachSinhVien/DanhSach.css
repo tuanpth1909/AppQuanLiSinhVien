@@ -61,3 +61,18 @@ button.btnUpdate:hover {
     color: white;
 }
 
+button.ui-dialog-titlebar-zoomin:hover {
+    background-color: #00688A;
+}
+
+button.ui-dialog-titlebar-zomout:hover {
+    background-color: #00688A;
+}
+
+button.ui-dialog-titlebar-hide:hover {
+    background-color: #00688A;
+}
+
+button.ui-dialog-titlebar-hide:hover {
+    background-color: #00688A;
+}

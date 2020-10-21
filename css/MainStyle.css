@@ -44,11 +44,17 @@ li a:hover {
     width: 80%;
 }
 
-.ui-dialog-titlebar .ui-dialog-titlebar-close{
+.ui-dialog-titlebar span.ui-dialog-title {
+    width: 80%;
+}
+
+.ui-dialog-titlebar .ui-dialog-titlebar-close {
     height: 20px;
     width: 20px;
     margin-top: 5px;
     padding: 0rem;
+    border: none;
+    background-color: #009CCF;
 }
 
 .ui-dialog-titlebar .ui-dialog-titlebar-min,
@@ -59,6 +65,8 @@ li a:hover {
     height: 20px;
     padding: 0em;
     margin: 5px 0 0 0;
+    border: none;
+    background-color: #009CCF;
 }
 
 

@@ -44,6 +44,6 @@
             </tbody>
         </table>
     </div>
-    <script src="/DanhMuc/DanhSachSinhVien/Contents.js?v=8"></script>
-    <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css" rel="stylesheet" />
+    <script src="/DanhMuc/DanhSachSinhVien/Contents.js?v=10"></script>
+    <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css?v=3" rel="stylesheet" />
 </asp:Content>

@@ -1,56 +1,121 @@
 ﻿(function ($) {
-    $.fn.fpmenu = function (param) {
-        //xử lý tham số mặc định
-        param = $.extend(
-            {
-                //các lớp của icon đóng - mở menu. Dùng font awesome 
-                btnClasses: 'fa fa-list-ul',
-                btnCloseClasses: 'fa fa-times',
+    //Cấu hình Plugin tự định nghĩa thông qua các thông số của Framework
+    $.fn.smDialog = function (settings) {
+        //Cài đặt các giá trị mặc định, các biến cần thêm trong plugin, nó sẽ được khai báo dưới dạng object
+        var config = {
+            autoOpen: false,
+            height: "auto",
+            width: 650,
+            modal: true,
+            title: "",
+            closeText: "✖",
+        };
 
-                //hiệu ứng và thời gian thực hiện hiệu ứng
-                animEffect: 'swing',
-                animSpeed: 500
-            }, param);
+        //Gán các tham số truyền vào nếu người dùng thay đổi
+        if (settings) { $.extend(config, settings); }
 
-        //mặc định ẩn menu
-        this.each(function (idx, el) {
-            $(el).addClass('fpmenu fp-hide').height($(window).height());
-        });
+        //Xử lý các điều kiện và duyệt qua từng phần tử
+        return this.each(function () {
+            var btnZoomIn = "<button type='button' class='ui-dialog-titlebar-zoomin' id='btnZoomIn' name='btnZoomIn' title='ZoomIn'><i class='far fa-window-restore'></i></button>";
+            var btnZoomOut = "<button type='button' class='ui-dialog-titlebar-zoomout' id='btnZoomOut' name='btnZoomOut' title='ZoomOut'><i class='far fa-window-maximize'></i></button>";
+            var btnHide = "<button type='button' class='ui-dialog-titlebar-hide' id='btnHide' name='btnHide' title='Hide'><i class='fas fa-eye-slash'></button>";
 
-        //hiển thị nút đóng - mở menu
-        $('<i class="fp-btn ' + param.btnClasses + '"></i>').appendTo('body');
+            $(this).dialog({
+                autoOpen: config.autoOpen,
+                height: config.height,
+                width: config.width,
+                modal: config.modal,
+                title: config.title,
+                create: function (e, ui) {
+                    //khởi tạo biến lấy this
+                    let that = $(this);
 
-        //thuộc tính cờ cho biết menu đang đóng hay mở
-        Object.defineProperty(this, 'isOpen', { value: false, writable: true });
+                    //Khởi tạo biến lấy dialog
+                    let dlg = $(this).dialog('widget');
 
-        //xử lý sự kiện người dùng nhấn đóng - mở menu
-        var _self = this;
-        $('i.fp-btn').click(function (e) {
-            e.preventDefault();
-            if (!$(_self).is(':animated')) {
-                if (_self.isOpen) {
-                    $(_self).animate({ opacity: 0 }, param.animSpeed, param.animEffect, function () {
-                        $(this).addClass('fp-hide');
-                        $('i.fp-btn').removeClass(param.btnCloseClasses).addClass(param.btnClasses);
+                    //#region Tạo btn thu nhỏ dialog
+                    //Khởi tạo các thuộc tính và button cần custom
+                    let min = $('<button>', {
+                        //Khai báo kiểu JSON
+                        class: "ui-dialog-titlebar-min",
+                        type: "button",
+                        title: "Minimize"
+                    })
+
+                        //Khởi tạo nút btn
+                        .button({
+                            icon: "fas fa-minus",
+                            showLabel: false
+                        })
+                    //#endregion
+
+                    //#region Tạo btn phóng to dialog
+                    let max = $('<button>', {
+                        class: "ui-dialog-titlebar-max",
+                        type: "button",
+                        title: "Maximize"
+                    })
+
+                        //Khởi tạo nút btn phóng to
+                        .button({
+                            icon: "fas fa-expand-arrows-alt",
+                            showLabel: false
+                        })
+                    //#endregion
+
+                    //
+
+                    //#region Tạo btn ẩn dialog
+                    let eyes = $('<button>', {
+                        class: "ui-dialog-titlebar-hide",
+                        type: "button",
+                        title: "Hide Dialog"
+                    })
+
+                        .button({
+                            icon: "fas fa-eye-slash",
+                            showLabel: false
+                        })
+
+                    let oSize = {
+                        width: that.dialog('option', 'width'),
+                        height: that.dialog('option', 'height'),
+                        position: {
+                            my: 'center',
+                            at: 'center',
+                            of: window
+                        }
+                    };
+                    //#endregion
+
+                    let mSize = {
+                        width: $(window).width(),
+                        height: $(window).height(),
+                        position: {
+                            my: 'left top',
+                            at: 'left top',
+                            of: window
+                        }
+                    };
+
+                    min.click(function (e) {
+                        that.dialog('option', oSize);
                     });
-                } else {
-                    $(_self).removeClass('fp-hide')
-                        .animate({ opacity: 1 }, param.animSpeed, param.animEffect, function () {
-                            $('i.fp-btn').removeClass(param.btnClasses).addClass(param.btnCloseClasses);
-                        });
-                }
-                _self.isOpen = !_self.isOpen;
-            }
-        });
 
-        return this;
+                    max.click(function (e) {
+                        that.dialog('option', mSize);
+                    });
+
+                    eyes.hover(function (e) {
+                        that.hide();
+                    }, function (e) {
+                        that.show();
+                    });
+
+                    $('.ui-dialog-titlebar .ui-dialog-title', dlg).after(min, max, eyes);
+                }
+            });
+            $('#jdialog').dialog('open');
+        });
     }
 })(jQuery);
-
-(function ($) {
-    $.fn.btnZoom = function (settings) {
-        var config = {
-
-        }
-    }
-});
