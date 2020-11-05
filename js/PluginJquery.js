@@ -8,7 +8,7 @@
             width: 650,
             modal: true,
             title: "",
-            closeText: "✖",
+            closeText: "✖"
         };
 
         //Gán các tham số truyền vào nếu người dùng thay đổi
@@ -16,9 +16,6 @@
 
         //Xử lý các điều kiện và duyệt qua từng phần tử
         return this.each(function () {
-            var btnZoomIn = "<button type='button' class='ui-dialog-titlebar-zoomin' id='btnZoomIn' name='btnZoomIn' title='ZoomIn'><i class='far fa-window-restore'></i></button>";
-            var btnZoomOut = "<button type='button' class='ui-dialog-titlebar-zoomout' id='btnZoomOut' name='btnZoomOut' title='ZoomOut'><i class='far fa-window-maximize'></i></button>";
-            var btnHide = "<button type='button' class='ui-dialog-titlebar-hide' id='btnHide' name='btnHide' title='Hide'><i class='fas fa-eye-slash'></button>";
 
             $(this).dialog({
                 autoOpen: config.autoOpen,
@@ -26,6 +23,7 @@
                 width: config.width,
                 modal: config.modal,
                 title: config.title,
+                closeText: config.closeText,
                 create: function (e, ui) {
                     //khởi tạo biến lấy this
                     let that = $(this);
@@ -63,8 +61,6 @@
                         })
                     //#endregion
 
-                    //
-
                     //#region Tạo btn ẩn dialog
                     let eyes = $('<button>', {
                         class: "ui-dialog-titlebar-hide",
@@ -76,6 +72,7 @@
                             icon: "fas fa-eye-slash",
                             showLabel: false
                         })
+                    //#endregion
 
                     let oSize = {
                         width: that.dialog('option', 'width'),
@@ -86,8 +83,7 @@
                             of: window
                         }
                     };
-                    //#endregion
-
+                    
                     let mSize = {
                         width: $(window).width(),
                         height: $(window).height(),
@@ -112,7 +108,7 @@
                         that.show();
                     });
 
-                    $('.ui-dialog-titlebar .ui-dialog-title', dlg).after(min, max, eyes);
+                    $('.ui-dialog-titlebar .ui-dialog-title', dlg).after( eyes,min, max);
                 }
             });
             $('#jdialog').dialog('open');

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using db_Connect;
+using db_Connect.Entities;
+using db_Connect.LIB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +12,23 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
 {
     public partial class FormDetail : System.Web.UI.Page
     {
+        public DmSINHVIEN objSINHVIEN = new DmSINHVIEN();
+        public List<LOPHOCEntities> objLOPHOC = new List<LOPHOCEntities>();
+        public string doAction = "";
+        public string itemId = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            QUANLYSINHVIENEntities dbContext = new QUANLYSINHVIENEntities();
+            DmSINHVIENDAP dapSINHVIENDAO = new DmSINHVIENDAP(dbContext);
+            DmLOPHOCDAP dapLOPHOCDAO = new DmLOPHOCDAP(dbContext);
+            doAction = !string.IsNullOrEmpty(Request["do"]) ? Request["do"].ToString() : "";
+            itemId = !string.IsNullOrEmpty(Request["itemid"]) ? Request["itemid"].ToString() : "";
+            if (itemId.Length > 0)
+            {
+                objSINHVIEN = dapSINHVIENDAO.GetById(itemId);
+            }
+            objLOPHOC.AddRange(dapLOPHOCDAO.getAll());
         }
     }
 }

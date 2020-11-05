@@ -1,67 +1,39 @@
 ﻿$(document).ready(function () {
-    cancels();
-    closeBlur();
+    RegisterEvent();
 });
 
+function RegisterEvent() {
 
-function editItem(item, key, obj) {
-    item.splice(key, 1);
-    item.splice(key, 0, obj);
-}
-
-function edits(index) {
-    document.getElementById('home').classList.toggle('active');
-    let student = dataStudents[index];
-    $.post("/DanhMuc/DanhSachSinhVien/FormDetail.aspx", {}, function (data) {
-        $("#jdialog").html(data);
-        $('#jdialog').dialog({
-            autoOpen: false,
-            height: "auto",
-            width: 900,
-            modal: true,
-            title: "THÊM THÔNG TIN SINH VIÊN",
-        });
-
-        $('#txtName').val(student.name);
-        $('#txtDate').val(student.dob);
-        $('input[name=rdoSex][value=' + student.sex + ']').prop("checked", true);
-        $('#txtAddress').val(student.add);
-        $('#txtTel').val(student.tel);
-        $('#txtEmail').val(student.email);
-        $("#ddlClasses").val(student.classes);
-
-        $('#btnSave').hide();
-        $('#btnUpdate').show();
-
-        $('#jdialog').dialog('open');
-
-        $('#btnUpdate').click(function () {
-            let obj = getStudent();
-            editItem(dataStudents, index, obj);
-            setStudent(dataStudents);
-
-            $('#btnUpdate').hide();
-            $('#btnSave').show();
-
-            $('#jdialog').dialog('close');
-            document.getElementById('home').classList.toggle('active');
-        });
+    //Save data
+    $('#btnSave').click(function () {
+        AddForm();
+        $('#home').removeClass('active');
     });
 
-    
-}
-    
-function cancels() {
+    //Delete Blur Backgroud
+    $('.ui-button').click(function () {
+        $('#home').removeClass('active');
+    });
+
+    //Cancel Popup
     $('button[name=btnDong]').click(function () {
         $('#home').removeClass('active');
         document.getElementById('validForm').reset();
         $('#jdialog').dialog('close');
     });
+
 }
 
-function closeBlur() {
-    $('.ui-button').click(function () {
-        $('#home').removeClass('active');
+function AddForm() {
+    var dataPost = $('#jdialog').find('input, hidden, select, textarea, radio, email, checkbox').not("#__VIEWSTATE,#__EVENTVALIDATION").serialize();
+    $.post(urlActionHandler, dataPost, function (data) {
+        if (data.Erros) {
+            alert(data.Message);
+            $('#jdialog', window.parent.document).scrollTop(0);
+        } else {
+            $("#jdialog").html("").dialog('close');
+            LoadGridData();
+        }
     });
 }
 

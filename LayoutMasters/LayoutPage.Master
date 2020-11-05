@@ -8,7 +8,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/all.min.css" rel="stylesheet" />
     <link href="/css/fontawesome.min.css" rel="stylesheet" />
-    <link href="/css/MainStyle.css?v=10" rel="stylesheet" />
+    <link href="/css/MainStyle.css?v=11" rel="stylesheet" />
     <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
