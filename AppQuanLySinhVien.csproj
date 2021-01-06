@@ -44,16 +44,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\DocX.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LIB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\LIB.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.1.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System.Linq" />
     <Reference Include="System.Runtime" />
     <Reference Include="System.Runtime.InteropServices" />
@@ -89,11 +113,23 @@
     <Content Include="DanhMuc\DanhSachSinhVien\DanhSach.aspx" />
     <Content Include="DanhMuc\DanhSachSinhVien\DanhSach.css" />
     <Content Include="DanhMuc\DanhSachSinhVien\Form.js" />
+    <Content Include="DLL\DocX.dll" />
+    <Content Include="DLL\LIB.dll" />
+    <Content Include="DLL\NPOI.dll" />
+    <Content Include="DLL\NPOI.OOXML.dll" />
+    <Content Include="DLL\NPOI.OpenXml4Net.dll" />
+    <Content Include="DLL\NPOI.OpenXmlFormats.dll" />
+    <Content Include="DLL\NPOI.XML" />
+    <Content Include="Img\faviconss.jpg" />
+    <Content Include="Img\favicon.jpg" />
+    <Content Include="Img\load.gif" />
+    <Content Include="Img\loads.gif" />
     <Content Include="js\fontawesome.min.js" />
     <Content Include="js\jquery-3.5.1.min.js" />
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\lodash.min.js" />
+    <Content Include="js\MainJS.js" />
     <Content Include="js\PluginJquery.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -153,6 +189,22 @@
     <Content Include="LayoutMasters\LayoutPage.Master" />
     <Content Include="LayoutMasters\LayoutDialog.Master" />
     <Content Include="ExtraMasters\ExtraForm.master" />
+    <Content Include="AppFile\Docs\262df424-1895-4dfe-ada0-ed95075d961f.docx" />
+    <Content Include="AppFile\Docs\333a5556-b071-493c-915d-58425254fd85.docx" />
+    <Content Include="AppFile\Docs\6c009de2-6a8f-4605-ad8a-ff349e0f07bb.docx" />
+    <Content Include="AppFile\Docs\b183c469-8407-459c-8ee0-96e6a161e3d5.docx" />
+    <Content Include="AppFile\Docs\eaab14f8-e5d8-46b7-ad51-e4461016afb7.docx" />
+    <Content Include="AppFile\Docs\ExportWord.docx" />
+    <Content Include="AppFile\Docs\ExportWordTable.docx" />
+    <Content Include="AppFile\Docs\f748361d-6c4a-4f6e-9fda-329429000233.docx" />
+    <Content Include="AppFile\Docs\ListSV.docx" />
+    <Content Include="AppFile\tmp\ListSV.docx" />
+    <Content Include="AppFile\Excel\ExportExcelSample.xls" />
+    <Content Include="AppFile\Excel\ExportExcel.xls" />
+    <Content Include="AppFile\Excel\ImportExcel.xls" />
+    <Content Include="AppFile\Excel\ExcelBm.xls" />
+    <Content Include="AppFile\Excel\ExcelCC.xls" />
+    <Content Include="AppFile\Excel\ChamCongSimaxs.xls" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Web.Debug.config">
@@ -163,9 +215,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DLL\" />
     <Folder Include="Fonts\" />
-    <Folder Include="Img\" />
     <Folder Include="QuanTri\" />
   </ItemGroup>
   <ItemGroup>

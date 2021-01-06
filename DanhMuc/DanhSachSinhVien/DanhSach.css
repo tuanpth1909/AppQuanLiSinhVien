@@ -1,4 +1,5 @@
-﻿tr:hover {
+﻿/*Nên sử dụng class */
+.tblhover tr:hover {
     background-color: #55BDDF;
 }
 
@@ -61,7 +62,7 @@ button.btnUpdate:hover {
     color: white;
 }
 
-button.ui-dialog-titlebar-zoomin:hover {
+button.ui-dialog-titlebar-max:hover {
     background-color: #00688A;
 }
 
@@ -73,6 +74,8 @@ button.ui-dialog-titlebar-hide:hover {
     background-color: #00688A;
 }
 
-button.ui-dialog-titlebar-hide:hover {
-    background-color: #00688A;
+
+#btnSave, #btnCancel{
+    border: none;
 }
+

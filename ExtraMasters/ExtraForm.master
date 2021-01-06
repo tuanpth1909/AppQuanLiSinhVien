@@ -9,25 +9,24 @@
             <%--Danh sách các trường ĐH--%>
             <div class="col-2 mt-4">
                 <div class="row pl-3">
-                    <input type="search" name="name" id="searchCategory" class="float-right mb-3 form-control w-100" value="" placeholder="Tìm kiếm trường đại học..." />
+                    <input type="search" name="name" id="searchCategory" class="float-right mb-3 form-control w-100" value="" placeholder="Tìm kiếm ngành học..." />
                 </div>
 
                 <div style="overflow: auto" id="dsDaiHoc">
                     <ul class="list-group">
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Kinh Tế Quốc Dân</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Bách Khoa</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Y Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Ngoại Thương</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Công nghiệp Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Công Đoàn</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Dược Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Giao thông Vận tải</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Kiến trúc Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Luật Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Mở Hà Nội</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH Mỹ thuật Việt Nam</strong></a></li>
-                        <li ><a href="#"><strong><i class="fas fa-university"></i> ĐH FPT (Cơ sở Hà Nội)</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspBáo chí</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspBáo chí - CTĐT CLC</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspChính trị học</strong></a></li>
+                        <li><a href="#" style="white-space: nowrap; "><strong><i class="fas fa-graduation-cap"></i>&nbspCông nghệ kỹ thuật hạt nhân</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspCông nghệ kỹ thuật hoá học</strong></a></li>
+                        <li><a href="#" style="white-space: nowrap;"><strong><i class="fas fa-graduation-cap"></i>&nbspCông nghệ kỹ thuật xây dựng</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspCông nghệ thông tin</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspKhí tượng và khí hậu học</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspKhoa học Giáo dục</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspKỹ thuật hình ảnh y học</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspLuật chất lượng cao</strong></a></li>
+                        <li><a href="#"><strong><i class="fas fa-graduation-cap"></i>&nbspLuật thương mại quốc tế</strong></a></li>
+                        <li><a href="#" style="white-space: nowrap; "><strong><i class="fas fa-graduation-cap"></i>&nbspQuản trị Chất lượng giáo dục</strong></a></li>
                     </ul>
                 </div>
             </div>
@@ -55,6 +54,6 @@
                 $(this).toggle($(this).text().toLowerCase().indexOf(keyword) > -1);
             });
         });
-       
+
     </script>
 </asp:Content>

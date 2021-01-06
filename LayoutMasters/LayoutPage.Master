@@ -5,19 +5,24 @@
 <html>
 <head runat="server">
     <title>Quản Lý Sinh Viên</title>
+    <link rel="shortcut icon" type="image/jpg" href="/Img/favicon.jpg" />
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/all.min.css" rel="stylesheet" />
     <link href="/css/fontawesome.min.css" rel="stylesheet" />
-    <link href="/css/MainStyle.css?v=11" rel="stylesheet" />
+    <link href="/css/MainStyle.css?v=2" rel="stylesheet" />
     <script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/lodash.min.js"></script>
-    <script type="text/javascript" src="/js/PluginJquery.js?v=7"></script>
+    <script type="text/javascript" src="/js/PluginJquery.js?v=9"></script>
+    <script type="text/javascript" src="/js/MainJS.js?v=9"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="preloading">
+    <div class="load">
+        <img src="/Img/loads.gif" />
+    </div>
     <form id="form1" runat="server">
         <div>
             <%--Navigation--%>
@@ -30,12 +35,12 @@
                     <li><a href="#"><i class="fas fa-address-book"></i><strong>&nbsp LIÊN HỆ</strong></a></li>
                 </ul>
             </div>
-            
+
             <%--Contents--%>
             <asp:ContentPlaceHolder ID="QuanLySinhVien" runat="server">
             </asp:ContentPlaceHolder>
             <%--Footer--%>
-            <div class="bg w-100" style="height: 30px; position: absolute;  bottom: 0; " id="range">
+            <div class="bg w-100" style="height: 30px; position: absolute; bottom: 0;" id="range">
                 <h6 class="text-center text-black p-1"><strong>Bản quyển thuộc về Demo Simax Company</strong></h6>
             </div>
         </div>

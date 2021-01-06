@@ -42,7 +42,7 @@
 
                         //Khởi tạo nút btn
                         .button({
-                            icon: "fas fa-minus",
+                            icon: "fas fa-compress-alt",
                             showLabel: false
                         })
                     //#endregion
@@ -56,7 +56,7 @@
 
                         //Khởi tạo nút btn phóng to
                         .button({
-                            icon: "fas fa-expand-arrows-alt",
+                            icon: "fas fa-compress",
                             showLabel: false
                         })
                     //#endregion
@@ -94,11 +94,11 @@
                         }
                     };
 
-                    min.click(function (e) {
+                    var minimine = min.click(function (e) {
                         that.dialog('option', oSize);
                     });
 
-                    max.click(function (e) {
+                    var maximine = max.click(function (e) {
                         that.dialog('option', mSize);
                     });
 
@@ -108,10 +108,42 @@
                         that.show();
                     });
 
-                    $('.ui-dialog-titlebar .ui-dialog-title', dlg).after( eyes,min, max);
+                    if (!minimine) {
+                        maximine
+                    } else {
+                        minimine
+                    }
+
+                    $('.ui-dialog-titlebar .ui-dialog-title', dlg).after(eyes, maximine);
                 }
             });
             $('#jdialog').dialog('open');
         });
     }
 })(jQuery);
+
+// Configure Dialog
+(function ($) {
+    $.fn.ctDialog = function (settings) {
+        var config = {
+            autoOpen: false,
+            height: "auto",
+            width: "auto",
+            modal: true,
+            title: "",
+
+        };
+
+        if (settings) { $.extend(config, settings) }
+
+        return this.each(function () {
+            $(this).dialog({
+                autoOpen: config.autoOpen,
+                height: config.height,
+                width: config.width,
+                modal: config.modal,
+                title: config.title
+            });
+        });
+    }
+}(jQuery))

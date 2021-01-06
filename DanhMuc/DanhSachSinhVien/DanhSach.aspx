@@ -2,15 +2,20 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="DanhSachSinhVien" runat="server">
     <div class="container mt-4">
-        <h4 class="mt-2"><i class="fas fa-list"></i><strong>DANH SÁCH SINH VIÊN</strong></h4>
+        <h4 class="mt-2"><i class="fas fa-list"></i><strong>&nbspDANH SÁCH SINH VIÊN</strong></h4>
         <div class="row">
             <%--Thêm sinh viên--%>
-            <div class="col-4">
-                <button type="button" name="btnAdd" id="btnAdd" class="btn btn-sm mb-1 btn-primary"><i class="fas fa-plus-circle"></i>THÊM</button>
+            <div class="col-6">
+                <button type="button" name="btnAdd" id="btnAdd" class="btn btn-sm mb-1 btn-primary"><i class="fas fa-plus-circle"></i>&nbspTHÊM</button>
+                <button type="button" name="btnExportTable" id="btnExportTable" class="btn btn-sm mb-1 btn-info"><i class="far fa-file-word"></i>&nbspXUẤT FILE WORD</button>
+                <button type="button" name="btnExportExcel" id="btnExportExcel" class="btn btn-sm mb-1 btn-success"><i class="far fa-file-excel"></i>&nbspXUẤT FILE EXCEL</button>
+                <button type="button" name="btnExportExcelBm" id="btnExportExcelBm" class="btn btn-sm mb-1 btn-success"><i class="far fa-file-excel"></i>&nbspXUẤT FILE EXCEL CODE</button>
+                <button type="button" name="btnExportExcelCC" id="btnExportExcelCC" class="btn btn-sm mb-1 btn-info"><i class="far fa-file-excel"></i>&nbspXUẤT FILE EXCEL CHẤM CÔNG</button>
+                <button type="button" name="btnImportExcel" id="btnImportExcel" class="btn btn-sm mb-1 btn-warning"><i class="fas fa-file-import"></i>&nbspNHẬP FILE EXCEL</button>                
             </div>
             <%--Khu vực tìm kiếm--%>
-            <div class="col-8">
-                <input type="search" name="search" id="search" class="float-right mb-3 form-control" style="width: 350px; height: 25px;" value="" placeholder="Tìm kiếm tên sinh viên..." />
+            <div class="col-6">
+                <input type="search" name="search" id="search" class="float-right mb-3 form-control" style="width: 250px; height: 25px;" value="" placeholder="Tìm kiếm tên sinh viên..." />
                 <div class="form-group float-right">
                     <label class="mr-1">Lớp: </label>
                     <select name="ddlFindClass" id="ddlFindClass" class=" mr-1" style="padding-top: -50px; height: 25px;">
@@ -38,9 +43,10 @@
                     <th style="width: 20px"></th>
                     <th style="width: 20px"></th>
                     <th style="width: 20px"></th>
+                    <th style="width: 20px"></th>
                 </tr>
             </thead>
-            <tbody id="dataList">
+            <tbody id="dataList" class="tblhover">
             </tbody>
         </table>
         <div class="float-right">
@@ -66,5 +72,5 @@
         </div>
     </div>
     <script src="/DanhMuc/DanhSachSinhVien/Contents.js?v=3"></script>
-    <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css?v=3" rel="stylesheet" />
+    <link href="/DanhMuc/DanhSachSinhVien/DanhSach.css?v=4" rel="stylesheet" />
 </asp:Content>
