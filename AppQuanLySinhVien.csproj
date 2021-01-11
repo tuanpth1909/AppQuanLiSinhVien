@@ -205,6 +205,7 @@
     <Content Include="AppFile\Excel\ExcelBm.xls" />
     <Content Include="AppFile\Excel\ExcelCC.xls" />
     <Content Include="AppFile\Excel\ChamCongSimaxs.xls" />
+    <Content Include="AppFile\Excel\ChamCongSimax.xls" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Web.Debug.config">

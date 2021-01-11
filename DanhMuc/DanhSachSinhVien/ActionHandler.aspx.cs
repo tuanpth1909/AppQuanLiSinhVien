@@ -23,7 +23,6 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
         string searchDanhMuc = "";
         JEntity jMessage = new JEntity();
         QUANLYSINHVIENEntities dbContext;
-        SMIS_2016Entities db;
         DmSINHVIENDAP dapSINHVIEN;
         DmTHETHAODAP dapTHETHAO;
         THETHAO_SINHVIENDAP dapTHETHAO_SINHVIEN;
@@ -429,15 +428,12 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
 
         private void ExportExcelCC()
         {
-            string filePath = Server.MapPath("/AppFile/Excel/ChamCongSimaxs.xls");
+            string filePath = Server.MapPath("/AppFile/Excel/ChamCongSimax.xls");
 
             HSSFWorkbook wb = ExcelNpoi.ReadExcelToHSSFWorkBook(filePath);//tao excel ten ban excel duoc dua vao
             HSSFSheet sheet = (HSSFSheet)wb.GetSheetAt(0);//tao sheet moi tu excel duoc chon sheet 
 
             #region Create font word
-
-            HSSFCellStyle xWhite = (HSSFCellStyle)wb.CreateCellStyle();
-            var setStyleCellWhite = xsSetStyle(xWhite, NPOI.HSSF.Util.HSSFColor.White.Index, NPOI.SS.UserModel.BorderStyle.None);
 
             HSSFCellStyle xWhiteCN = (HSSFCellStyle)wb.CreateCellStyle();
             var setStyleCellWhiteCN = xsSetStyle(xWhiteCN, NPOI.HSSF.Util.HSSFColor.White.Index, NPOI.SS.UserModel.BorderStyle.Dotted);
@@ -453,6 +449,7 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
 
             List<KETQUACHAMCONGEntities> listKetQuaChamCong = dapCHAMCONG.ListChamCong();
             List<KETQUACHAMCONGEntities> listDayOfMonth = dapCHAMCONG.ListNgay();
+            List<KETQUATINHEntities> listKetQuaTinh = dapCHAMCONG.listKetQua();
             List<DANGKYONSITEEtities> listOnsite = dapDANGKYONSITE.ListOnsite();
 
             using (FileStream excel = new FileStream(filePath, FileMode.Open, FileAccess.Read))
@@ -476,7 +473,7 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
 
                 #region Replace tiêu đề tháng
                 var date = sheet.GetRow(1).GetCell(0);
-                date.SetCellValue("Từ ngày " + listKetQuaChamCong[0].NGAY + " đến ngày " + listKetQuaChamCong[30].NGAY);
+                date.SetCellValue("Từ ngày " + (listKetQuaChamCong[0].NGAY).ToString("dd/MM/yyyy") + " đến ngày " + (listKetQuaChamCong[30].NGAY).ToString("dd/MM/yyyy"));
                 #endregion
 
                 #region Đổ dữ liệu ra sheet
@@ -490,6 +487,7 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                 TimeSpan dateMorning = TimeSpan.Parse("08:00"); //Hours by default
                 TimeSpan dateAfternoon = TimeSpan.Parse("17:30"); //Timeout by default
 
+                //dump ChamCong the data in excel
                 for (int i = 0; i < listKetQuaChamCong.Count;)
                 {
                     //Nếu trùng id thì chỉ cho đổi theo chiều ngang
@@ -497,17 +495,19 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                     {
                         worksheetRow.GetCell(0).SetCellValue(stt + 1);
                         worksheetRow.GetCell(1).SetCellValue("");
+                        MergeCell(sheet, rowIndex, 1);
                         worksheetRow.GetCell(2).SetCellValue(listKetQuaChamCong[i].FULLNAME == null ? "" : listKetQuaChamCong[i].FULLNAME);
+                        MergeCell(sheet, rowIndex, 2);
 
+                        //Dump ChamCong
                         for (int j = 4; j < listDayOfMonth.Count + 4; j++)
                         {
-                            if (listKetQuaChamCong[i].NGAY == listDayOfMonth[j - 4].DAY)
+                            if (listKetQuaChamCong[i].NGAY == listDayOfMonth[j - 4].NGAY)
                             {
                                 TimeSpan indexGioDen = TimeSpan.Parse(String.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "00:00" : listKetQuaChamCong[i].GIODEN);
                                 TimeSpan indexGioRa = TimeSpan.Parse(String.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "18:00" : listKetQuaChamCong[i].GIORA);
                                 int resultGioDen = TimeSpan.Compare(indexGioDen, dateMorning);
                                 int resultGioRa = TimeSpan.Compare(indexGioRa, dateAfternoon);
-
 
                                 if (resultGioDen > 0 || resultGioRa < 0)
                                 {
@@ -515,34 +515,15 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                                     {
                                         if (resultGioDen > 0)
                                         {
-                                            for (int n = 0; n < listOnsite.Count; n++)
-                                            {
-                                                if (listOnsite[n].TuNgay == listKetQuaChamCong[i].NGAY || listOnsite[n].DenNgay == listKetQuaChamCong[i].NGAY)
-                                                {
-                                                    //In ra giờ đến
-                                                    worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
-                                                    //worksheetRow.GetCell(j).CellStyle = xsStyleOrange;
-                                                    worksheetRow.GetCell(j).CellStyle = setStyleCellBlue;
-                                                    IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
-                                                    //In ra giờ về
-                                                    rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
-                                                    rowIndexGioRa.GetCell(j).CellStyle = setStyleCellBlue;
-                                                    i++;
-                                                }
-                                                else
-                                                {
-                                                    //In ra giờ đến
-                                                    worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
-                                                    //worksheetRow.GetCell(j).CellStyle = xsStyleOrange;
-                                                    worksheetRow.GetCell(j).CellStyle = setStyleCellYellow;
-                                                    IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
-                                                    //In ra giờ về
-                                                    rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
-                                                    rowIndexGioRa.GetCell(j).CellStyle = setStyleCellYellow;
-                                                    i++;
-                                                }
-                                            }
-
+                                            //In ra giờ đến
+                                            worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
+                                            //worksheetRow.GetCell(j).CellStyle = xsStyleOrange;
+                                            worksheetRow.GetCell(j).CellStyle = setStyleCellYellow;
+                                            IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
+                                            //In ra giờ về
+                                            rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
+                                            rowIndexGioRa.GetCell(j).CellStyle = setStyleCellYellow;
+                                            i++;
                                         }
                                         else
                                         {
@@ -557,34 +538,14 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
 
                                     else
                                     {
-                                        for (int n = 0; n < listOnsite.Count; n++)
-                                        {
-                                            if (listOnsite[n].TuNgay == listKetQuaChamCong[i].NGAY || listOnsite[n].DenNgay == listKetQuaChamCong[i].NGAY)
-                                            {
-                                                //In ra giờ đến
-                                                worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
-                                                //worksheetRow.GetCell(j).CellStyle = xsStyleOrange;
-                                                worksheetRow.GetCell(j).CellStyle = setStyleCellBlue;
-                                                IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
-                                                //In ra giờ về
-                                                rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
-                                                rowIndexGioRa.GetCell(j).CellStyle = setStyleCellBlue;
-                                                i++;
-                                            }
-                                            else
-                                            {
-                                                //In ra giờ đến
-                                                worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
-                                                //worksheetRow.GetCell(j).CellStyle = xsStyleOrange;
-                                                worksheetRow.GetCell(j).CellStyle = setStyleCellYellow;
-                                                IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
-                                                //In ra giờ về
-                                                rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
-                                                rowIndexGioRa.GetCell(j).CellStyle = setStyleCellYellow;
-                                                i++;
-                                            }
-                                        }
-
+                                        //In ra giờ đến
+                                        worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
+                                        worksheetRow.GetCell(j).CellStyle = setStyleCellYellow;
+                                        IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
+                                        //In ra giờ về
+                                        rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
+                                        rowIndexGioRa.GetCell(j).CellStyle = setStyleCellYellow;
+                                        i++;
                                     }
                                 }
                                 else
@@ -594,86 +555,112 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                                     IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
                                     //In ra giờ về
                                     rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
+
                                     if (listKetQuaChamCong[i].GIODEN == null && listKetQuaChamCong[i].GIORA == null)
                                     {
-                                        worksheetRow.GetCell(j).CellStyle = setStyleCellWhite;
                                         worksheetRow.GetCell(j).SetCellValue("V");
+                                        MergeCell(sheet, rowIndex, j);
                                     }
                                     if (listKetQuaChamCong[i].THU == "CN")
                                     {
                                         worksheetRow.GetCell(j).CellStyle = setStyleCellWhiteCN;
-                                        worksheetRow.GetCell(j).SetCellValue("");
-                                        rowIndexGioRa.GetCell(j).SetCellValue("");
+                                        worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
+                                        rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
                                     }
                                     i++;
 
                                 }
-
-                                //if (resultGioDen > 0 || resultGioRa < 0)
-                                //{
-                                //    if (listKetQuaChamCong[i].THU == "T7")
-                                //    {
-                                //        if (resultGioDen > 0)
-                                //        {
-                                //            //In ra giờ đến
-                                //            worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
-                                //            //worksheetRow.GetCell(j).CellStyle = xsStyleOrange;
-                                //            worksheetRow.GetCell(j).CellStyle = setStyleCellYellow;
-                                //            IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
-                                //            //In ra giờ về
-                                //            rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
-                                //            rowIndexGioRa.GetCell(j).CellStyle = setStyleCellYellow;
-                                //            i++;
-                                //        }
-                                //        else
-                                //        {
-                                //            //In ra giờ đến
-                                //            worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
-                                //            IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
-                                //            //In ra giờ về
-                                //            rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
-                                //            i++;
-                                //        }
-                                //    }
-
-                                //    else
-                                //    {
-                                //        //In ra giờ đến
-                                //        worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
-                                //        worksheetRow.GetCell(j).CellStyle = setStyleCellYellow;
-                                //        IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
-                                //        //In ra giờ về
-                                //        rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
-                                //        rowIndexGioRa.GetCell(j).CellStyle = setStyleCellYellow;
-                                //        i++;
-                                //    }
-                                //}
-                                //else
-                                //{
-                                //    //In ra giờ đến
-                                //    worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "" : listKetQuaChamCong[i].GIODEN);
-                                //    IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
-                                //    //In ra giờ về
-                                //    rowIndexGioRa.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "" : listKetQuaChamCong[i].GIORA);
-                                //    if (listKetQuaChamCong[i].GIODEN == null && listKetQuaChamCong[i].GIORA == null)
-                                //    {
-                                //        worksheetRow.GetCell(j).CellStyle = setStyleCellWhite;
-                                //        worksheetRow.GetCell(j).SetCellValue("V");
-                                //    }
-                                //    if (listKetQuaChamCong[i].THU == "CN")
-                                //    {
-                                //        worksheetRow.GetCell(j).CellStyle = setStyleCellWhiteCN;
-                                //        worksheetRow.GetCell(j).SetCellValue("");
-                                //        rowIndexGioRa.GetCell(j).SetCellValue("");
-                                //    }
-                                //    i++;
-
-                                //}
                             }
                             else
                             {
                                 continue;
                             }
+                        }
+
+                        //Dump Onsite
+                        for (int n = 0; n < listOnsite.Count; n++)
+                        {
+                            if (userID == listOnsite[n].UserId)
+                            {
+                                for (int j = 4; j < listDayOfMonth.Count + 4; j++)
+                                {
+                                    if (listKetQuaChamCong[i].NGAY >= listOnsite[n].TuNgay && listKetQuaChamCong[i].NGAY <= listOnsite[n].DenNgay)
+                                    {
+                                        worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "O" : listKetQuaChamCong[i].GIODEN);
+                                        worksheetRow.GetCell(j).CellStyle = setStyleCellBlue;
+                                        MergeCell(sheet, rowIndex, j);
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        i++;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                        }
+
+                        //Ket qua tinh
+                        for (int k = 0; k < listKetQuaTinh.Count;)
+                        {
+                            if (userID == listKetQuaTinh[k].Userid)
+                            {
+                                for (int m = 35; m < 51;)
+                                {
+                                    worksheetRow.GetCell(m).SetCellValue(string.IsNullOrEmpty(listKetQuaTinh[k].NgayCongChuan) ? "0" : listKetQuaTinh[k].NgayCongChuan);
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue(string.IsNullOrEmpty(listKetQuaTinh[k].NgayCongNT) ? "0" : listKetQuaTinh[k].NgayCongNT);
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue("0");
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue(string.IsNullOrEmpty(listKetQuaTinh[k].GioCongNT) ? "0" : listKetQuaTinh[k].GioCongNT);
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue("0");
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue(string.IsNullOrEmpty(listKetQuaTinh[k].LanVaoTre) ? "0" : listKetQuaTinh[k].LanVaoTre);
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue(string.IsNullOrEmpty(listKetQuaTinh[k].PhutVaoTre) ? "0" : listKetQuaTinh[k].PhutVaoTre);
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue(string.IsNullOrEmpty(listKetQuaTinh[k].LanRaSom) ? "0" : listKetQuaTinh[k].LanRaSom);
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue(string.IsNullOrEmpty(listKetQuaTinh[k].PhutRaSom) ? "0" : listKetQuaTinh[k].PhutRaSom);
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue(string.IsNullOrEmpty(listKetQuaTinh[k].GioTangCa) ? "0" : listKetQuaTinh[k].GioTangCa);
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue("0");
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue("");
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue(string.IsNullOrEmpty(listKetQuaTinh[k].VangKp) ? "0" : listKetQuaTinh[k].VangKp);
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue("");
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue("");
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                    worksheetRow.GetCell(m).SetCellValue("0");
+                                    MergeCell(sheet, rowIndex, m);
+                                    m++;
+                                }
+                            }
+                            k++;
                         }
                     }
                     //Khác id xuất dữ liệu xuống dòng tiếp theo
@@ -689,10 +676,6 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                         userID = listKetQuaChamCong[i].USERID;
                     }
                 }
-                //for(int n = 0; n < listOnsite.Count; n++)
-                //{
-
-                //}
 
                 #region Delete first row
                 var rowDelete1 = sheet.GetRow(rowCopy);
@@ -770,6 +753,7 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
         }
         #endregion
 
+        //SetStyleCell cho nhung truong hop nhu Onsite, Vang...
         private HSSFCellStyle xsSetStyle(HSSFCellStyle setStyle, short Color, NPOI.SS.UserModel.BorderStyle Border)
         {
             setStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
@@ -779,6 +763,15 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
             setStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
 
             return setStyle;
+        }
+
+        //MergeCell sau khi do du lieu ra bang
+        public CellRangeAddress MergeCell(HSSFSheet sheet, int rowIndex, int n)
+        {
+            CellRangeAddress MergeNameCell = new CellRangeAddress(rowIndex, rowIndex + 1, n, n);
+            sheet.AddMergedRegion(MergeNameCell);
+
+            return MergeNameCell;
         }
 
         private void ImportChamCongNormal(IRow worksheetRow, int j, List<KETQUACHAMCONGEntities> listKetQuaChamCong, int i, HSSFSheet sheet, int rowIndex)
