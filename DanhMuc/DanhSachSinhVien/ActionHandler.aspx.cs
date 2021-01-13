@@ -454,26 +454,20 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
 
             using (FileStream excel = new FileStream(filePath, FileMode.Open, FileAccess.Read))
             {
-
-                #region Replace thứ trong tháng
-                for (var i = 4; i < 35; i++)
-                {
-                    var row = sheet.GetRow(6).GetCell(i);
-                    row.SetCellValue(listKetQuaChamCong[i - 4].THU);
-                }
-                #endregion
-
-                #region Replace ngày trong tháng
-                for (var i = 4; i < 35; i++)
-                {
-                    var row = sheet.GetRow(5).GetCell(i);
-                    row.SetCellValue(listKetQuaChamCong[i - 4].DAY);
-                }
-                #endregion
-
                 #region Replace tiêu đề tháng
                 var date = sheet.GetRow(1).GetCell(0);
                 date.SetCellValue("Từ ngày " + (listKetQuaChamCong[0].NGAY).ToString("dd/MM/yyyy") + " đến ngày " + (listKetQuaChamCong[30].NGAY).ToString("dd/MM/yyyy"));
+                #endregion
+
+                #region Replace thứ va ngay trong tháng
+                for (var i = 4; i < 35; i++)
+                {
+                    var rowNgay = sheet.GetRow(5).GetCell(i);
+                    rowNgay.SetCellValue(listKetQuaChamCong[i - 4].DAY);
+
+                    var rowThu = sheet.GetRow(6).GetCell(i);
+                    rowThu.SetCellValue(listKetQuaChamCong[i - 4].THU);
+                }
                 #endregion
 
                 #region Đổ dữ liệu ra sheet
@@ -496,7 +490,7 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                         worksheetRow.GetCell(0).SetCellValue(stt + 1);
                         worksheetRow.GetCell(1).SetCellValue("");
                         MergeCell(sheet, rowIndex, 1);
-                        worksheetRow.GetCell(2).SetCellValue(listKetQuaChamCong[i].FULLNAME == null ? "" : listKetQuaChamCong[i].FULLNAME);
+                        worksheetRow.GetCell(2).SetCellValue(String.IsNullOrEmpty(listKetQuaChamCong[i].FULLNAME) ? "" : listKetQuaChamCong[i].FULLNAME);
                         MergeCell(sheet, rowIndex, 2);
 
                         //Dump ChamCong
@@ -535,7 +529,6 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                                             i++;
                                         }
                                     }
-
                                     else
                                     {
                                         //In ra giờ đến
@@ -577,24 +570,57 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                             }
                         }
 
-                        //Dump Onsite
+                        //Dump Sosite
                         for (int n = 0; n < listOnsite.Count; n++)
                         {
                             if (userID == listOnsite[n].UserId)
                             {
-                                for (int j = 4; j < listDayOfMonth.Count + 4; j++)
+                                try
                                 {
-                                    if (listKetQuaChamCong[i].NGAY >= listOnsite[n].TuNgay && listKetQuaChamCong[i].NGAY <= listOnsite[n].DenNgay)
+                                    for (int j = 4; j < listDayOfMonth.Count + 4; j++)
                                     {
-                                        worksheetRow.GetCell(j).SetCellValue(string.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "O" : listKetQuaChamCong[i].GIODEN);
-                                        worksheetRow.GetCell(j).CellStyle = setStyleCellBlue;
-                                        MergeCell(sheet, rowIndex, j);
-                                        i++;
+                                        if(listDayOfMonth[j-4].THU == "CN")
+                                        {
+                                            worksheetRow.GetCell(j).CellStyle = setStyleCellWhiteCN;
+                                            worksheetRow.GetCell(j).SetCellValue("");
+                                            IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
+                                            rowIndexGioRa.GetCell(j).SetCellValue("");
+                                        }
+                                        else
+                                        {
+                                            if (listDayOfMonth[j - 4].NGAY <= listOnsite[n].DenNgay && listDayOfMonth[j - 4].NGAY >= listOnsite[n].TuNgay)
+                                            {
+                                                if (listOnsite[n].TuBuoi == "1" && listOnsite[n].DenBuoi == "1")
+                                                {
+                                                    worksheetRow.GetCell(j).SetCellValue(String.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "O" : listKetQuaChamCong[i].GIODEN);
+                                                    worksheetRow.GetCell(j).CellStyle = setStyleCellBlue;
+                                                }
+                                                //if (listOnsite[n].TuBuoi == "2" && listOnsite[n].DenBuoi == "2")
+                                                //{
+                                                //    IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
+                                                //    rowIndexGioRa.GetCell(j).SetCellValue(String.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "O" : listKetQuaChamCong[i].GIORA);
+                                                //    rowIndexGioRa.GetCell(j).CellStyle = setStyleCellBlue;
+                                                //}
+                                                else
+                                                {
+                                                    worksheetRow.GetCell(j).SetCellValue("O");
+                                                    worksheetRow.GetCell(j).CellStyle = setStyleCellBlue;
+                                                    MergeCell(sheet, rowIndex, j);
+                                                    //i++;
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                continue;
+                                            }
+                                        }
+                                       
                                     }
-                                    else
-                                    {
-                                        i++;
-                                    }
+                                }
+                                catch
+                                {
+
                                 }
                             }
                             else
@@ -603,7 +629,7 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                             }
                         }
 
-                        //Ket qua tinh
+                        //Dump KetQua
                         for (int k = 0; k < listKetQuaTinh.Count;)
                         {
                             if (userID == listKetQuaTinh[k].Userid)
@@ -668,7 +694,6 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                     {
                         stt++;
                         worksheetRow = sheet.GetRow(rowIndexCopy);
-                        //worksheetRow.GetCell(2).IsMergedCell = false;
                         sheet.CopyRow(rowCopy, rowIndexCopy);
                         sheet.CopyRow(rowCopy + 1, rowIndexCopy + 1);
                         rowIndexCopy = rowIndexCopy + 2;
