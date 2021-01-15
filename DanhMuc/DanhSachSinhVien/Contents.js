@@ -151,12 +151,14 @@ function ExportExcel() {
     return false;
 }
 
+//Xuat file Excel tao bang code
 function ExportExcelBm() {
     var urlActionTaoFile = "/DanhMuc/DanhSachSinhVien/ActionHandler.aspx?filetype=doc&do=exportexcelbm";
     window.open(urlActionTaoFile, "_blank");
     return false;
 }
 
+//Xuat file cham cong
 function ExportExcelCC() {
     var urlActionTaoFile = "/DanhMuc/DanhSachSinhVien/ActionHandler.aspx?filetype=doc&do=exportexcelcc";
     window.open(urlActionTaoFile, "_blank");

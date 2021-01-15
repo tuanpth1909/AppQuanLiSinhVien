@@ -590,25 +590,24 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                                         {
                                             if (listDayOfMonth[j - 4].NGAY <= listOnsite[n].DenNgay && listDayOfMonth[j - 4].NGAY >= listOnsite[n].TuNgay)
                                             {
-                                                if (listOnsite[n].TuBuoi == "1" && listOnsite[n].DenBuoi == "1")
+                                                if(listOnsite[n].TuBuoi == "1" || listOnsite[n].DenBuoi == "1")
                                                 {
-                                                    worksheetRow.GetCell(j).SetCellValue(String.IsNullOrEmpty(listKetQuaChamCong[i].GIODEN) ? "O" : listKetQuaChamCong[i].GIODEN);
+                                                    worksheetRow.GetCell(j).SetCellValue("O");
                                                     worksheetRow.GetCell(j).CellStyle = setStyleCellBlue;
                                                 }
-                                                //if (listOnsite[n].TuBuoi == "2" && listOnsite[n].DenBuoi == "2")
-                                                //{
-                                                //    IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
-                                                //    rowIndexGioRa.GetCell(j).SetCellValue(String.IsNullOrEmpty(listKetQuaChamCong[i].GIORA) ? "O" : listKetQuaChamCong[i].GIORA);
-                                                //    rowIndexGioRa.GetCell(j).CellStyle = setStyleCellBlue;
-                                                //}
-                                                else
+                                                if(listOnsite[n].TuBuoi == "2" || listOnsite[n].DenBuoi == "2")
+                                                {
+                                                    IRow rowIndexGioRa = sheet.GetRow(rowIndex + 1);
+                                                    rowIndexGioRa.GetCell(j).SetCellValue("O");
+                                                    rowIndexGioRa.GetCell(j).CellStyle = setStyleCellBlue;
+                                                }
+                                                if(listDayOfMonth[j - 4].NGAY < listOnsite[n].DenNgay && listDayOfMonth[j - 4].NGAY > listOnsite[n].TuNgay)
                                                 {
                                                     worksheetRow.GetCell(j).SetCellValue("O");
                                                     worksheetRow.GetCell(j).CellStyle = setStyleCellBlue;
                                                     MergeCell(sheet, rowIndex, j);
-                                                    //i++;
                                                 }
-
+                                              
                                             }
                                             else
                                             {
@@ -627,6 +626,7 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                             {
                                 continue;
                             }
+
                         }
 
                         //Dump KetQua
@@ -692,6 +692,8 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                     //Khác id xuất dữ liệu xuống dòng tiếp theo
                     else
                     {
+                        MergeCell(sheet, rowIndexCopy, 1);
+                        MergeCell(sheet, rowIndexCopy, 2);
                         stt++;
                         worksheetRow = sheet.GetRow(rowIndexCopy);
                         sheet.CopyRow(rowCopy, rowIndexCopy);
@@ -699,6 +701,7 @@ namespace AppQuanLiSinhVien.DanhMuc.DanhSachSinhVien
                         rowIndexCopy = rowIndexCopy + 2;
                         rowIndex = rowIndex + 2;
                         userID = listKetQuaChamCong[i].USERID;
+                        
                     }
                 }
 
